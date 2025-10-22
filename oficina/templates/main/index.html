@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="{% static 'css/main/style.css' %}" />
+    </head>
+    <body>
+        <section id="topo">
+            <h1>Dashboard</h1>
+            <p>Visão geral do desempemnho da oficina.</p>
+        </section>
+
+        <section id="dados-dashboard" class="flex-between">
+            <div class="caixa-dashbord-dados">
+                <div>
+                    <p>Total de clientes</p>
+                    <h2 id="total_clientes">{{ total_clientes }}</h2>
+                </div>
+                <div>
+                    <img src="" alt="ícone de pessoa" />
+                </div>
+            </div>
+            <div class="caixa-dashbord-dados">
+                <div>
+                    <p>Veículos em manutenção</p>
+                    <h2 id="veiculos_manuntenção">{{ veiculos_manutencao }}</h2>
+                </div>
+                <div>
+                    <img src="" alt="ícone de carro" />
+                </div>
+            </div>
+            <div class="caixa-dashbord-dados">
+                <div>
+                    <p>Serviços Concluídos</p>
+                    <h2 id="servicos_concluidos">{{ servicos_concluidos }}</h2>
+                </div>
+                <div>
+                    <img src="" alt="ícone de concluido" />
+                </div>
+            </div>
+            <div class="caixa-dashbord-dados">
+                <div>
+                    <p>Orçamentos pendentes</p>
+                    <h2 id="orcamentos_pendentes">
+                        {{ orcamentos_pendentes }}
+                    </h2>
+                </div>
+                <div>
+                    <img src="" alt="ícone de pag de documento" />
+                </div>
+            </div>
+        </section>
+        <section id="servicos-recentes-dashboard">
+            <h2>Serviços recentes</h2>
+            <p>Últiams ordens de serviço registradas</p>
+            <div class="caixa-servicos-recentes">
+                {% for servico in servicos %}
+                <div>
+                    <div>
+                        <p>Cliente: {{ servico.cliente.nome }}</p>
+                        <p>
+                            Veículo: {{ servico.veiculo.modelo }} - {{
+                            servico.veiculo.placa }}
+                        </p>
+                        <p>Serviço: {{ servico.descricao_servico }}</p>
+                    </div>
+                    <div>
+                        <p>Data: {{ servico.data_servico }}</p>
+                        <p></p>
+                        <p>Status: {{ servico.status }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </body>
+</html>
