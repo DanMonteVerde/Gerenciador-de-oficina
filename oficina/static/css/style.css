@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; /*rolagem de página suave */
+}
+
+/* ID's */
+
+#caixa-dashbord-dados {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+/* Class */

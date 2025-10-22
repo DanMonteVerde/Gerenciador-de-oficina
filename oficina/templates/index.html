@@ -7,5 +7,70 @@
         <title>Dashboard</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     </head>
-    <body></body>
+    <body>
+        <h1>Dashboard</h1>
+        <p>Visão geral do desempemnho da oficina.</p>
+        <section id="dados-dashboard">
+            <div id="caixa_dashbord_dados">
+                <div>
+                    <p>Total de clientes</p>
+                    <h2 id="total_clientes">
+                        {{ total_clientes }}
+                    </h2>
+                </div>
+                <div>
+                    <img src="" alt="ícone de pessoa">
+                </div>
+            <div id="caixa_dashbord_dados">
+                <div>
+                    <p>Veículos em manutenção</p>
+                    <h2 id="veiculos_manuntenção">
+                        {{ veiculos_manutencao }}
+                    </h2>
+                </div>
+                <div>
+                    <img src="" alt="ícone de carro">
+                </div>
+            <div id="caixa_dashbord_dados">
+                <div>
+                    <p>Serviços Concluídos</p>
+                    <h2 id="servicos_concluidos">
+                        {{ servicos_concluidos }}
+                    </h2>
+                </div>
+                <div>
+                    <img src="" alt="ícone de concluido">
+                </div>
+            <div id="caixa_dashbord_dados">
+                <div>
+                    <p>Orçamentos pendentes</p>
+                    <h2 id="orcamentos_pendentes">
+                        {{ orcamentos_pendentes }}
+                    </h2>
+                </div>
+                <div>
+                    <img src="" alt="ícone de pag de documento">
+                </div>
+            </div>
+        </section>
+        <section id="servicos-recentes-dashboard">
+            <h2>Serviços recentes</h2>
+            <p>Últiams ordens de serviço registradas</p>
+            <div id="caixa-servicos-recentes">
+                {% for servico in servicos %}
+                    <div>
+                        <div>
+                            <p>Cliente: {{ servico.cliente.nome }}</p>
+                            <p>Veículo: {{ servico.veiculo.modelo }} - {{ servico.veiculo.placa }}</p>
+                            <p>Serviço: {{ servico.descricao_servico }}</p>
+                        </div>
+                        <div>
+                            <p>Data: {{ servico.data_servico }}<p>
+                            <p>Status: {{ servico.status }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </body>
 </html>
