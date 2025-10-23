@@ -15,9 +15,15 @@ html {
 
 /* TAGS */
 
+
+
+
 section {
     margin-left: 20px;
 }
+
+
+
 
 /* ID's */
 #dados-dashboard {
@@ -47,4 +53,25 @@ section {
 
 .format-forms{
     field-sizing: content;
+}
+
+.lista-menu-ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-menu-li{
+    display: inline;
+    margin-right: 20px;
+}
+
+
+/*footer*/
+
+footer{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
 }
