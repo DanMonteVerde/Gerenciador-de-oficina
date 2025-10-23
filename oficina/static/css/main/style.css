@@ -44,3 +44,7 @@ section {
     width: 370px;
     border: 1px solid #000000;
 }
+
+.format-forms{
+    field-sizing: content;
+}
