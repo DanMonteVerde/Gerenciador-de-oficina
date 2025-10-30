@@ -56,21 +56,27 @@
         <div class="caixa-servicos-recentes">
             {% for servico in servicos %}
             <div>
-                <div>
-                    <p>Cliente: {{ servico.cliente.nome }}</p>
-                    <p>
-                        Veículo: {{ servico.veiculo.modelo }} - {{
-                        servico.veiculo.placa }}
-                    </p>
-                    <p>Serviço: {{ servico.descricao_servico }}</p>
-                </div>
-                <div>
-                    <p>Data: {{ servico.data_servico }}</p>
-                    <p></p>
-                    <p>Status: {{ servico.status }}</p>
-                </div>
+                <table class="tabela-servicos-recentes border">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Veículo</th>
+                            <th>Serviço</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ servico.cliente }}</td>
+                            <td>{{ servico.veiculo }}</td>
+                            <td>{{ servico.servico }}</td>
+                            <td>{{ servico.valor }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             {% endfor %}
         </div>
     </section>
+
 {% endblock %}

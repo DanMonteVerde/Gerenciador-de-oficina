@@ -66,6 +66,18 @@ section {
     margin-right: 20px;
 }
 
+.tabela-servicos-recentes{
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+
 
 /*footer*/
 
