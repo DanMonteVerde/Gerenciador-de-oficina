@@ -4,8 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Oficina</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header>
+
+        <div id="imagem-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Jair_Bolsonaro_2019_Portrait_%283x4_cropped_center%29.jpg/330px-Jair_Bolsonaro_2019_Portrait_%283x4_cropped_center%29.jpg" alt=""">
+            <div>
+                <h1>AutoGest Pro</h1>
+                <h2>Sistema de gestão de oficina</h2>
+            </div>
+        </div>
+
+
+
+        <div id="user-logado">
+            <img src="https://static.ndmais.com.br/2025/07/54646826322-c7289f0a9f-k.jpg" alt="" style="height: 40px;" id="button-logout">
+            
+            <span id="cargo-user">
+                Teste
+                <span id="name-user">
+                    Teste
+                </span>
+            </span>
+            <button>logout</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Clientes</a></li>
+                <li><a href="#">Veículos</a></li>
+                <li><a href="#">Serviços</a></li>
+            </ul>
+        </nav>
+        <section>
+            <main>
+                <h1>Dashboard</h1>
+                <h2>Visáo Geral do desempenho da oficina</h2>
+                <div id="caixas1-dashboard" class="display-grid">
+                    <div class="caixa1 clientes moldagem-div">
+                        <div class="dados">
+                            <span class="titulo-caixa1">Total de Clientes</span>
+                            <span class="valor-caixa1">150</span>
+                            <span class="porcentagem-caixa1">+12% este mês</span>
+                        </div>
+                        <div class="logo-caixa1">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="caixa1 veiculos moldagem-div">
+                        <div class="dados">
+                            <span class="titulo-caixa1">Veículos</span>
+                            <span class="valor-caixa1">85</span>
+                            <span class="porcentagem-caixa1">+8% este mês</span>
+                        </div>
+                        <div class="logo-caixa1">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="caixa1 servicos-pendentes moldagem-div">
+                        <div class="dados">
+                            <span class="titulo-caixa1">Serviços Pendentes</span>
+                            <span class="valor-caixa1">23</span>
+                            <span class="porcentagem-caixa1">-5% este mês</span>
+                        </div>
+                        <div class="logo-caixa1">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="caixa1 orcamentos-pendente moldagem-div">
+                        <div class="dados">
+                            <span class="titulo-caixa1">Orçamentos Pendentes</span>
+                            <span class="valor-caixa1">10</span>
+                            <span class="porcentagem-caixa1">+3% este mês</span>
+                        </div>
+                        <div class="logo-caixa1">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                </div>
+        
+                <div id="graficos-dashboard" class="display-grid">
+                    <div class="grafico-dash faturamento-mensal">
+                        <h1>Faturamento Mensal</h1>
+                        <h2>Receita dos últimos 6 meses</h2>
+                        <div class="grafico-placeholder">
+                            <!-- Gráfico de barras ou linha aqui -->
+                        </div>
+                    </div>
+                    <div class="grafico-dash distribuicao-servicos">
+                        <h1>Distribuição de Serviços</h1>
+                        <h2>Serviços realizados por categoria</h2>
+                        <div class="grafico-placeholder">
+                            <!-- Gráfico de pizza aqui -->
+                        </div>
+                    </div>
+                </div>
+        
+                <div id="servicos-recentes">
+                    <h1>Servços recentes</h1>
+                    <h2>Últimas ordens de serviço registradas</h2>
+                    <div class="tabela-servicos-recentes">
+                        <div class="item-servico">
+                            <div class="logo-servicos">
+                                <img src="" alt="">
+                            </div>
+                            <span>João Silva</span>
+                            <span>Honda Civic</span>
+                            <span>Troca de Óleo</span>
+                            <div class="data-estado">
+                                <span>12/10/2023</span>
+                                <span class="estado-servico em-andamento">Em Andamento</span>
+                            </div>
+                        </div>
+                        <div class="item-servico">
+                            <div class="logo-servicos">
+                                <img src="" alt="">
+                            </div>
+                            <span>João Silva</span>
+                            <span>Honda Civic</span>
+                            <span>Troca de Óleo</span>
+                            <div class="data-estado">
+                                <span>12/10/2023</span>
+                                <span class="estado-servico concluido">Concluído</span>
+                            </div>
+                        </div>
+                        <div class="item-servico">
+                            <div class="logo-servicos">
+                                <img src="" alt="">
+                            </div>
+                            <span>João Silva</span>
+                            <span>Honda Civic</span>
+                            <span>Troca de Óleo</span>
+                            <div class="data-estado">
+                                <span>12/10/2023</span>
+                                <span class="estado-servico pendente">Pendente</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </main>
+        </section>
+    </div>
 </body>
 </html>
