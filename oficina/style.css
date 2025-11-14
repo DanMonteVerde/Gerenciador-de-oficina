@@ -19,6 +19,7 @@ header {
 
 body{
     background-color: #e0dede;
+    height: 100vh;
 }
 
 
@@ -45,20 +46,91 @@ body{
     gap: 10px;
 }
 
+.texto-azul{
+    color: #1E40AF;
+}
+
+.logo-azul{
+    color: white;
+    background-color: #1E40AF;
+    padding: 8px;
+    border-radius: 15px;
+    font-size: 40px;
+
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#caixa-logado{
+    background-color: rgba(128, 128, 128, 0.216);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 #cargo-user{
     display: flex;
     flex-direction: column;
 }
 
 nav{
-    background-color: #343a40;
-    width: 30%;
+    background-color: #1E293B;
+    width: 12%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    justify-content: flex-start;
+    padding-left: 40px;
+    padding-right: 40px;
+
     
 }
 
+#opcoes-menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    width: 100%;
+}
+#opcoes-menu li{
+    width: 100%;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#opcoes-menu li a{
+    text-decoration: none;
+    color: white;
+    background-color: #3B82F6;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: 90%;
+    display: block;
+
+}
+
 section{
-    margin-left: 20%;
     width: 80%;
     padding: 20px;
     height: 100vh;
@@ -95,4 +167,17 @@ section main{
     padding: 15px;
     border-radius: 10px;
     border: 1px solid #bfbaba;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    height: 100px;
+    display: flex;
+    flex-direction: column 2,1;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.dados{
+    display: flex;
+    flex-direction: column;
 }
