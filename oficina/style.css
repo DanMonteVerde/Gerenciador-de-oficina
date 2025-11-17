@@ -88,47 +88,35 @@ body{
     flex-direction: column;
 }
 
-nav{
-    background-color: #1E293B;
-    width: 12%;
-    height: 100%;
+.menu-lateral {
+    width: 230px;
+    height: 100vh;
+    background: #0f172a;
+    padding: 15px 10px;
+}
+
+.menu-lateral .nav-link {
+    color: #dde1cb;
+    padding: 10px 15px;
+    border-radius: 7px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding-top: 20px;
-    justify-content: flex-start;
-    padding-left: 40px;
-    padding-right: 40px;
-
-    
-}
-
-#opcoes-menu{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    font-size: 30px;
-    width: 100%;
-}
-#opcoes-menu li{
-    width: 100%;
-    margin-bottom: 20px;
-    color: white;
-}
-
-#opcoes-menu li a{
+    gap: 10px;
+    font-size: 0.95rem;
     text-decoration: none;
-    color: white;
-    background-color: #3B82F6;
-    padding: 10px 20px;
-    border-radius: 8px;
-    width: 90%;
-    display: block;
-
 }
+
+.menu-lateral .nav-link:hover {
+    background: #1e293b;
+    color: #fff;
+}
+
+.menu-lateral .nav-link.active {
+    background: #3b82f6;
+    color: white;
+}
+
+
 
 section{
     width: 80%;
@@ -139,6 +127,7 @@ section{
 
 section main{
     height: 100%;
+    width: 60%;
 }
 /* classes */
 
