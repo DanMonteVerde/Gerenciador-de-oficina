@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from clientes.models import CadastroCliente
 # Create your views here.
+@login_required
 def index(request):
-    context = {'total_clientes': 5, 'veiculos_manutencao': 10 , 'servicos_concluidos':30, 'orcamentos_pendentes':5 }
+    clientes = CadastroCliente.objects.count()
+    context = {'clientes_cadastrados': clientes}
     return render(request, 'main/index.html', context)
-def teste(request):
-    return render(request, 'main/teste.html')

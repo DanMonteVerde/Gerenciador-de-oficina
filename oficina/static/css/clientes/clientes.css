@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #1f2a44;
+    color: white;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 8px 4px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    color: #7ab4ff;
+}
+
+/* Content */
+.content {
+    margin-left: 240px;
+    padding: 20px;
+    width: 100%;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Busca */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    background: #1f2a44;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background: #2f3c5f;
+}
+
+/* Client cards */
+.client-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.client-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.client-card h2 {
+    margin: 0 0 10px;
+}
+
+.client-card p {
+    margin: 5px 0;
+}
+
+/* Área topo: busca + adicionar */
+.top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-btn {
+    padding: 10px 20px;
+    background: #3a7bd5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background: #2163b9;
+}

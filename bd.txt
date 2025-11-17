@@ -1,0 +1,23 @@
+cadastro de clientes: 
+- nome
+- contato (email ou numero)
+- endereço (null)
+- quantidade de veiculos (len de estrangeira)
+
+cadastro de veiculos:
+- placa
+- status (em andamento ou concluido)
+- marca/modelo
+- ano
+- cor
+- proprietario (estrangeira de cliente)
+- descrição
+
+cadastro de serviços:
+- tipo
+- veiculo (estrangeira de veiculos)
+- mecanico (estrangeira de users)
+- agendamento
+- valor
+- cliente (estrangeira de clientes)
+- status (concluido, em andamento, agendado)

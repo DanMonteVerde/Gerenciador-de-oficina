@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="{% static 'css/clientes/clientes.css' %}">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <h2>Oficina</h2>
+        <ul>
+            <li><a href="{% url 'index' %}">Dashboard</a></li>
+            <li><a class="active" href="{% url 'clientes' %}">Clientes</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Relatórios</a></li>
+            <li><a href="#">Configurações</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+
+        <h1>Clientes</h1>
+
+        <!-- Área de busca + botão adicionar -->
+        <div class="top-controls">
+            <div class="search-box">
+                <input type="text" placeholder="Buscar clientes...">
+                <button>Buscar</button>
+            </div>
+            <a href="{% url 'cadastrar_cliente' %}"><button class="add-btn" >+ Adicionar Cliente</button></a>
+            
+        </div>
+
+        <!-- Campo de busca -->
+        
+
+        <!-- Lista de clientes -->
+        <section class="client-list">
+            {% if clientes %}
+                {% for cliente in clientes %}
+                <div class="client-card">
+                    <h2>{{ cliente.nome }}</h2>
+                    <p><strong>Contato:</strong> {{ cliente.telefone }}</p>
+                    <p><strong>Endereço:</strong> {{ cliente.endereco }}</p>
+                    <a href="{% url 'excluir_cliente' cliente.id %}">Excluir</a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum cliente encontrado.</p>
+            {% endif %}
+        </section>
+
+    </main>
+
+</body>
+</html>
