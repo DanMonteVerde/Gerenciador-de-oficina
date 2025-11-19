@@ -74,6 +74,12 @@ section {
     height: 350px;
 }
 
+.servicos-recentes{
+    background-color: #0cb44d;
+    padding: 20px;
+    border-radius: 12px;
+}
+
 .lista-servicos {
     display: flex;
     flex-direction: column;
