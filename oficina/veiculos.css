@@ -1,0 +1,112 @@
+
+.card-simples {
+    background-color: rgb(142, 102, 150);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+.icone-veiculo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #e6f1e6; 
+    flex-shrink: 0; 
+}
+
+
+.icone-veiculo i {
+    color: #38a169; 
+    font-size: 1.25rem;
+}
+
+
+.numero-destaque {
+    font-size: 2.5rem; 
+    font-weight: 500;
+    line-height: 1.2;
+    color: #212529; 
+}
+
+
+.text-secondary {
+    color: #6b7280 !important; 
+    font-weight: 500;
+    font-size: 0.9rem; 
+}
+
+
+
+.lista-veiculos{
+    width: 100%;
+    height: 80%px;
+    background-color: rgb(142, 110, 218);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+
+.caixas-veiculos{
+    background-color: white;
+    border-radius: 12px;
+    
+}
+
+.carro-disponivel{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-car{
+    font-size: 20px;
+    background-color: #E8EBF7;
+    padding: 10px;
+    border-radius: 8px;
+    width: 50px;
+    text-align: center;
+    color: #1E40AF;
+}
+
+.btn-outline-secondary-1-veiculos {
+    --bs-btn-color: #4C515C;
+    --bs-btn-hover-color: #4C515C;
+    --bs-btn-hover-bg: #6b728034;
+    --bs-btn-focus-shadow-rgb: 108, 117, 125;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #6c757d;
+    --bs-btn-active-border-color: #6c757d;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #6c757d;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #6c757d;
+    --bs-gradient: none;
+    border: solid 1px;
+}
+
+.btn-outline-danger-2-veiculos {
+    --bs-btn-color: #EF4444;
+    --bs-btn-hover-color: #EF4444;
+    --bs-btn-hover-bg: #6b728034;
+    --bs-btn-focus-shadow-rgb: 108, 117, 125;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #6c757d;
+    --bs-btn-active-border-color: #6c757d;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #6c757d;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #6c757d;
+    --bs-gradient: none;
+    border: solid 1px;
+}
+
+
+.info-linha{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+

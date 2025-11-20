@@ -96,3 +96,10 @@
     --bs-btn-disabled-border-color: #6c757d;
     --bs-gradient: none;
 }
+
+.table {
+    --bs-table-bg: transparent !important;
+    --bs-table-striped-bg: transparent !important;
+    --bs-table-hover-bg: transparent !important;
+    background-color: transparent !important;
+}
