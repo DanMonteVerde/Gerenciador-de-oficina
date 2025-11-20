@@ -29,7 +29,7 @@ def cadastro(request):
             return redirect('clientes')
     else:
         form = CadastroClienteForm()    
-    return render(request, 'clientes/cadastro.html', {'form': form})
+    return render(request, 'clientes/cadastro_cliente.html', {'form': form})
 
 @login_required
 def excluir_cliente(request, id):
@@ -41,5 +41,5 @@ def excluir_cliente(request, id):
 class EditarCliente(UpdateView):
     model = CadastroCliente
     form_class = CadastroClienteForm
-    template_name = 'clientes/editar.html'
+    template_name = 'clientes/editar_clientes.html'
     success_url = reverse_lazy('clientes')
