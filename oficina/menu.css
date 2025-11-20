@@ -140,4 +140,6 @@ section {
     margin-left: 230px; 
     padding: 80px;
     width: calc(100% - 230px);
+    padding-left: 30px;
+    padding-right: 30px;
 }
