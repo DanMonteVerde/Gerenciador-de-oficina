@@ -26,16 +26,15 @@
 
         <!-- Área de busca + botão adicionar -->
         <div class="top-controls">
-            <div class="search-box">
-                <input type="text" placeholder="Buscar clientes...">
-                <button>Buscar</button>
-            </div>
+            <form method="get">
+                <div class="search-box">
+                    <input type="text" name="q" placeholder="Buscar clientes..." value="{{ busca }}">
+                    <button type="submit">Buscar</button>
+                </div>
+            </form>
             <a href="{% url 'cadastrar_cliente' %}"><button class="add-btn" >+ Adicionar Cliente</button></a>
             
         </div>
-
-        <!-- Campo de busca -->
-        
 
         <!-- Lista de clientes -->
         <section class="client-list">
@@ -44,7 +43,11 @@
                 <div class="client-card">
                     <h2>{{ cliente.nome }}</h2>
                     <p><strong>Contato:</strong> {{ cliente.telefone }}</p>
-                    <p><strong>Endereço:</strong> {{ cliente.endereco }}</p>
+                    <p><strong>Email:</strong> {{ cliente.email }}</p>
+                    {% if cliente.endereco %} 
+                    <p><strong>Endereço:</strong>{{ cliente.endereco }}</p>
+                    {% endif %}
+                    <a href="{% url 'editar_cliente' cliente.id %}">Editar</a>
                     <a href="{% url 'excluir_cliente' cliente.id %}">Excluir</a>
                 </div>
                 {% endfor %}
@@ -54,6 +57,6 @@
         </section>
 
     </main>
-
+    
 </body>
 </html>
