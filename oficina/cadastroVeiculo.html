@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body style="background-color: #f3f4f6;">
+        <div class="container mt-5" style="background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <h2 style="text-align: center; margin-bottom: 50px">
+                Cadastro de Veículo
+            </h2>
+            <p style="margin-bottom: 50px; color: #6b7280;" >Preencha os dados do veículo abaixo.</p>
+            <form>
+                <div class="form-group">
+                    <label for="proprietario">Proprietário:</label>
+                    <select name="proprietario" id="proprietario" required>
+                        <option value="" disabled selected>
+                            Selecione o proprietário
+                        </option>
+                        <option value="1">João Silva</option>
+                        <option value="2">Maria Oliveira</option>
+                        <option value="3">Carlos Souza</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="marca">Marca</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="marca"
+                        placeholder="Digite a marca"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="modelo">Modelo</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="modelo"
+                        placeholder="Digite o modelo"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="placa">Placa</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="placa"
+                        placeholder="Digite a placa"
+                        required
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="reset" class="btn btn-danger">Limpar</button>
+            
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
