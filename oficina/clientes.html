@@ -91,7 +91,7 @@
 
                         <button type="button" id="botao-add-cliente" class="d-flex botao-add">
                             <i
-                                class="bi bi-plus-square-fill"
+                                class="bi bi-plus"
                                 style="color: #000000; font-size: 30px"
                             ></i>
 
@@ -111,15 +111,51 @@
                             </div>
 
                             <nav class="navbar bg-body-tertiary">
-                                <div class="container-fluid">
-                                    <form class="d-flex" role="search">
-                                        <i class="bi bi-search" style="font-size: 20px;"></i>
-                                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                                <div class="container-fluid" style="padding: 0px;">
+                                    <form class="d-flex buscador-clientes" role="search">
+                                        <i class="bi bi-search" style="font-size: 20px; margin-right: 10px;"></i>
+                                        <input class="form-control me-2" type="search" placeholder=" Search" aria-label="Search"/>
                                     </form>
                                 </div>
                             </nav>
                         </div>
 
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Contato</th>
+                                        <th scope="col">Endereço</th>
+                                        <th scope="col">Veículos</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">3</th>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>@social</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                        
                     </div>
 
                 </main>
