@@ -16,6 +16,11 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous"
         />
+        <style>
+            .margin-button {
+                margin-top: 20px;
+            }
+        </style>
     </head>
     <body>
         <div class="container mt-5">
@@ -23,62 +28,56 @@
                 Cadastro de Cliente
             </h2>
             <p>Preencha os dados do cliente abaixo.</p>
-            <form>
-                <div class="form-group">
-                    <label for="nome">Nome Completo</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="nome"
-                        placeholder="Digite o nome"
-                        required
-                    />
-                </div>
+            <form class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="nome"
+                    placeholder="Digite o nome"
+                    required
+                />
 
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        placeholder="email@exemplo.com"
-                        required
-                    />
-                </div>
+                <label for="email">E-mail</label>
+                <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="email@exemplo.com"
+                    required
+                />
 
-                <div class="form-group">
-                    <label for="telefone">Telefone</label>
-                    <input
-                        type="tel"
-                        class="form-control"
-                        id="telefone"
-                        placeholder="(99) 99999-9999"
-                        required
-                    />
-                </div>
+                <label for="telefone">Telefone</label>
+                <input
+                    type="tel"
+                    class="form-control"
+                    id="telefone"
+                    placeholder="(99) 99999-9999"
+                    required
+                />
 
-                <div class="form-group">
-                    <label for="endereco">Endereço</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="endereco"
-                        placeholder="Rua, número, bairro, cidade"
-                        required
-                    />
-                </div>
-                <div class="form-group">
-                    <label for="cpf">CPF</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="cpf"
-                        placeholder="000.000.000-00"
-                    />
-                </div>
+                <label for="endereco">Endereço</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="endereco"
+                    placeholder="Rua, número, bairro, cidade"
+                    required
+                />
+                <label for="cpf">CPF</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="cpf"
+                    placeholder="000.000.000-00"
+                />
 
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-                <button type="reset" class="btn btn-danger">Limpar</button>
+                <button type="submit" class="btn btn-primary margin-button">
+                    Cadastrar
+                </button>
+                <button type="reset" class="btn btn-danger margin-button">
+                    Limpar
+                </button>
             </form>
         </div>
         <!-- Optional JavaScript -->
