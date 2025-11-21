@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -9,8 +9,7 @@ header * {
     display: revert;
 }
 
-
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -25,51 +24,46 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
-body{
-
+body {
     min-height: 100vh;
     overflow-y: auto;
 }
 
-
-
-#imagem-header img{
+#imagem-header img {
     height: 50px;
 }
 
-#imagem-header{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-}
-
-.container-externo{
-    display: flex;
-}
-
-#user-logado{
+#imagem-header {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.texto-azul{
-    color: #1E40AF;
+.container-externo {
+    display: flex;
+}
+
+#user-logado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.texto-azul {
+    color: #1e40af;
     font-size: 15px;
 }
 
-.logo-azul{
+.logo-azul {
     color: white;
-    background-color: #1E40AF;
+    background-color: #1e40af;
     padding: 8px;
     border-radius: 15px;
     font-size: 40px;
-
 }
 
 .profile-pic {
@@ -88,8 +82,8 @@ body{
     margin-right: 10px;
 }
 
-#caixa-logado{
-    background-color: #F3F4F6;
+#caixa-logado {
+    background-color: #f3f4f6;
     display: flex;
     align-items: center;
     border-radius: 10px;
@@ -97,7 +91,7 @@ body{
     height: 30px;
 }
 
-#cargo-user{
+#cargo-user {
     display: flex;
     flex-direction: column;
 }
@@ -110,7 +104,8 @@ body{
     height: calc(100vh - 80px); /* altura total menos o header */
     background: #0f172a;
     padding: 15px 10px;
-    overflow-y: auto; /* caso tenha muitos itens */
+    overflow-y: auto;
+    transition: transform 0.3s ease;
 }
 
 .menu-lateral .nav-link {
@@ -134,15 +129,50 @@ body{
     color: white;
 }
 
-
-
-
 section {
     margin-top: 30px;
-    margin-left: 230px; 
+    margin-left: 230px;
     padding: 80px;
     width: calc(100% - 230px);
     padding-left: 30px;
     padding-right: 30px;
-    background-color: #F9FAFB;
+    background-color: #f9fafb;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 5px;
+    font-size: 10px;
+    cursor: pointer;
+    background: #cfcece;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .menu-lateral {
+        transform: translateX(-100%);
+        position: fixed;
+        z-index: 1200;
+    }
+    .menu-lateral.open {
+        transform: translateX(0);
+    }
+    section {
+        margin-left: 0;
+        width: 100%;
+    }
 }

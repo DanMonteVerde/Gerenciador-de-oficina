@@ -45,8 +45,7 @@
 }
 
 .buscador-clientes{
-    display: flex !important
-;
+    display: flex !important;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
