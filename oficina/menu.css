@@ -60,6 +60,7 @@ body{
 
 .texto-azul{
     color: #1E40AF;
+    font-size: 15px;
 }
 
 .logo-azul{
@@ -88,11 +89,12 @@ body{
 }
 
 #caixa-logado{
-    background-color: rgba(128, 128, 128, 0.216);
+    background-color: #F3F4F6;
     display: flex;
     align-items: center;
     border-radius: 10px;
     padding: 10px;
+    height: 30px;
 }
 
 #cargo-user{
@@ -142,4 +144,5 @@ section {
     width: calc(100% - 230px);
     padding-left: 30px;
     padding-right: 30px;
+    background-color: #F9FAFB;
 }
