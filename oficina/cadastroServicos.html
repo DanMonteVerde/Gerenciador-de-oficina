@@ -17,14 +17,17 @@
             crossorigin="anonymous"
         />
     </head>
-    <body>
-        <div class="container mt-5">
+    <body style="background-color: #cdcdcd">
+        <div
+            class="container mt-5"
+            style="background-color: #ffffff; padding: 30px; border-radius: 8px"
+        >
             <h2 style="text-align: center; margin-bottom: 50px">
                 Cadastro de Serviços
             </h2>
             <p>Preencha os dados do serviço abaixo.</p>
             <form class="form-group">
-                <label for="cliente">Cliente</label>
+                <label for="cliente" style="padding-right: 60px">Cliente</label>
                 <select name="cliente" id="cliente" required>
                     <option value="" disabled selected>
                         Selecione o cliente
@@ -33,9 +36,43 @@
                     <option value="2">Maria Oliveira</option>
                     <option value="3">Carlos Souza</option>
                 </select>
+                <br />
                 <label for="tipo">Tipo do Serviço</label>
-                <select name="" id=""></select>
+                <select name="" id="">
+                    <option value="" disabled selected>
+                        Selecione o tipo de serviço
+                    </option>
+                    <option value="1">Troca de óleo</option>
+                    <option value="2">Alinhamento</option>
+                    <option value="3">Revisão geral</option>
+                </select>
+                <br />
+                <label for="descricao">Descrição do Serviço</label>
+                <textarea
+                    name="descricao"
+                    id="descricao"
+                    rows="4"
+                    class="form-control"
+                    placeholder="Descreva o serviço a ser realizado"
+                    required
+                ></textarea>
 
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="margin-top: 20px"
+                >
+                    Cadastrar
+                </button>
+                <button
+                    type="reset"
+                    class="btn btn-danger"
+                    style="margin-top: 20px"
+                >
+                    Limpar
+                </button>
+            </form>
+        </div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

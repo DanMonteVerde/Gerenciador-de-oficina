@@ -21,3 +21,10 @@ const avatarInitialsElement = document.querySelector(".profile-pic .initials");
 if (avatarInitialsElement) {
     avatarInitialsElement.textContent = userInitials;
 }
+
+const sidebar = document.getElementById("sidebar");
+const hamburger = document.getElementById("hamburger");
+
+hamburger.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+});

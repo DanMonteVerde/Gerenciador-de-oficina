@@ -46,8 +46,10 @@
         </div>
     </header>
 
+    <div class="hamburger" id="hamburger">☰</div>
+
     <div class="container-externo">
-        <div class="menu-lateral flex-column">
+        <div class="menu-lateral flex-column" id="sidebar">
             <a href="index.html" class="nav-link">
                 <i class="bi bi-grid"></i> Dashboard
             </a>
@@ -83,17 +85,35 @@
 
         <section>
             <main>
-                <h1 style="font-size: 30px">Dashboard</h1>
-                <h2 style="font-size: 20px" class="text-muted">
-                    Visão geral do desempenho da oficina
-                </h2>
+                <div class="topo-sec" style="margin-bottom: 20px;">
+                        <div>
+                            <h1 style="font-size: 30px">Serviços</h1>
+                            <h2 style="font-size: 20px" class="text-muted">
+                                Gerencie as ordens de serviço da oficina
+                            </h2>
+                        </div>
+
+                        <button
+                            href="cadastroServicos.html"
+                            type="button"
+                            id="botao-add-cliente"
+                            class="d-flex botao-add"
+                        >
+                            <i
+                                class="bi bi-plus"
+                                style="color: #000000; font-size: 30px"
+                            ></i>
+
+                            <span style="margin-left: 10px">Novo ordem de serviço</span>
+                        </button>
+                    </div>
 
                 <div class="ordens-servicos mt-4">
                         <div class="topo-lista">
                             <div>
-                                <h1 style="font-size: 30px">Dashboard</h1>
+                                <h1 style="font-size: 30px">Ordens de Serviço</h1>
                                 <h2 style="font-size: 20px" class="text-muted">
-                                    Visão geral do desempenho da oficina
+                                    Acompanhe todos os serviços em tempo real
                                 </h2>
                             </div>
 
