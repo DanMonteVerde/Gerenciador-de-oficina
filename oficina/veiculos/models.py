@@ -29,7 +29,7 @@ class Veiculo(models.Model):
         ],
         null=False, blank=False)
     cor = models.CharField(max_length=100, null=False, blank=False)
-    proprietario = models.ForeignKey('clientes.CadastroCliente', on_delete=models.PROTECT)
+    proprietario = models.ForeignKey('clientes.CadastroCliente', on_delete=models.CASCADE)
     descricao = models.TextField(null=True, blank=True)
 
     def __str__(self):
