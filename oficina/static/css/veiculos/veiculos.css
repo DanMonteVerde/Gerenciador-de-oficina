@@ -1,0 +1,71 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #1e88e5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Blocos de status */
+.status-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.status-box {
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.pronto {
+    background: #43a047;
+}
+
+.manutencao {
+    background: #fb8c00;
+}
+
+.aguardando {
+    background: #e53935;
+}
+
+/* Lista de veículos */
+.lista-titulo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.lista-veiculos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.veiculo-card {
+    width: 280px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.veiculo-card h3 {
+    margin-top: 0;
+    color: #1e88e5;
+}

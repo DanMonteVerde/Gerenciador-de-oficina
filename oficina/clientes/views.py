@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 from django.db.models import Q
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 @login_required
 def clientes(request):
@@ -37,8 +38,8 @@ def excluir_cliente(request, id):
     cliente.delete()
     return redirect('clientes')
 
-#FALTA O EDITAR, PARTICULAMENTE A PREGUIÇA BATEU, GABRIEL DO FUTURO UM CONSELHO TENHA PACIENCIA.
-class EditarCliente(UpdateView):
+
+class EditarCliente(LoginRequiredMixin, UpdateView):
     model = CadastroCliente
     form_class = CadastroClienteForm
     template_name = 'clientes/editar_clientes.html'

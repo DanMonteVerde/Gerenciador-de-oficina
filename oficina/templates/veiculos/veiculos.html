@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aba de Veículos - Oficina</title>
+    <link rel="stylesheet" href="{% static 'css/veiculos/veiculos.css' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+    {% include 'menuNav.html' %}
+    <br><br><br><br><br><br><br><br><br>
+    <div style="text-align: center;">
+        <a href="{% url 'cadastro_veiculo' %}"><button>+ Adicionar veiculo</button></a>
+    </div>
+    <section class="status-container">
+        <div class="status-box pronto">
+            <h2>Prontos</h2>
+            <p>{{ concluidos }}</p>
+        </div>
+
+        <div class="status-box manutencao">
+            <h2>Em Manutenção</h2>
+            <p>{{ em_andamento }}</p>
+        </div>
+
+        <div class="status-box aguardando">
+            <h2>Aguardando Peça</h2>
+            <p>{{ aguardando_pecas }}</p>
+        </div>
+    </section>
+
+    <h2 class="lista-titulo">Lista de Veículos</h2>
+    <form method="get" style="text-align: center;">
+        <div class="search-box">
+            <input type="text" name="q" placeholder="Buscar clientes..." value="{{ busca }}">
+            <button type="submit">Buscar</button>
+        </div>
+    </form>
+    <section class="lista-veiculos">
+        
+        {% for veiculo in veiculos %}
+        <div class="veiculo-card">
+            <p>{{ veiculo.id }}</p>
+            <p>{{ veiculo.placa }}</p>
+            <p>{{ veiculo.marca_modelo }}</p>
+            <p>{{ veiculo.cor}} </p>
+            <p>{{ veiculo.status }}</p>
+            <p>{{ veiculo.proprietario.nome }}</p>
+            <p>{{ veiculo.descricao }}</p>
+            <a href="{% url 'excluir_veiculo' veiculo.id %}" onclick="return confirm('Tem certeza que deseja excluir este veículo?');">Excluir</a>
+            <a href="{% url 'editar_veiculo' veiculo.id %}">Editar</a>
+        </div>
+        {% endfor %}
+
+    </section>
+
+</body>
+</html>
+
