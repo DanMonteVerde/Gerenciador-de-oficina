@@ -98,10 +98,10 @@ body {
 
 .menu-lateral {
     position: fixed;
-    top: 80px; /* começa depois do header */
+    top: 80px;
     left: 0;
     width: 230px;
-    height: calc(100vh - 80px); /* altura total menos o header */
+    height: calc(100vh - 80px);
     background: #0f172a;
     padding: 15px 10px;
     overflow-y: auto;
