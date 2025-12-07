@@ -25,7 +25,11 @@
     align-items: center;
     border: none;
     background: transparent;
+    background-color: #eeeeee;
+    border-radius: 10px;
 }
+
+
 
 .lista-clientes{
     width: 100%;
