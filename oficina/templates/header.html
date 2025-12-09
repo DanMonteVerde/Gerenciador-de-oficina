@@ -1,15 +1,28 @@
 {% load static %}
+ 
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
 <link rel="stylesheet" href="{% static 'css/main/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/main/menu.css' %}" />
 
 <header>
     <div id="imagem-header">
-        <i class="bi bi-wrench" style="font-size: 30px; background-color: #1e40af; padding: 5px; border-radius: 12px; color: white; width: 40px;text-align:center;"></i>
+        <i
+            class="bi bi-wrench"
+            style="
+                font-size: 30px;
+                background-color: #1e40af;
+                padding: 5px;
+                border-radius: 12px;
+                color: white;
+                width: 40px;
+                text-align: center;
+            "
+        ></i>
         <div>
             <h1 style="color: #1e40af" class="texto-azul">
                 AutoGest Pro
             </h1>
-            <h2>Sistema de gestão de oficina</h2>
+            <h2 class="text-muted">Sistema de gestão de oficina</h2>
         </div>
     </div>
 
@@ -19,20 +32,17 @@
                 <span class="initials"></span>
             </div>
 
-            <span id="cargo-user">
+            <span id="cargo-user" style="color: #000000;">
                 Administrador
-                <span id="name-user"> Administrador </span>
+                <span id="name-user" style="color: #000000;"> Administrador </span>
             </span>
         </div>
-        <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit" id="botao-sair">
+
+        <button type="button" id="botao-sair">
             <i
                 class="fa-solid fa-arrow-right-from-bracket"
-                style="color: #000000; font-size: 20px"
+                style="color: #000000; font-size: 15px"
             ></i>
         </button>
-        </form>
-        
     </div>
 </header>

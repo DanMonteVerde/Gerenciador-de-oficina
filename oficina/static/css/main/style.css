@@ -1,4 +1,4 @@
-.display-grid{
+.display-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
@@ -7,19 +7,19 @@
     padding-top: 20px;
 }
 
-.display-flex{
+.display-flex {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
-.text-center{
+.text-center {
     text-align: center;
 }
 
-.moldagem-div{
-    background-color:white;
+.moldagem-div {
+    background-color: white;
     padding: 15px;
     border-radius: 10px;
     border: 1px solid #bfbaba;
@@ -27,20 +27,21 @@
     width: 300px;
     height: 100px;
     display: flex;
-    flex-direction: column 2,1;
+    flex-direction: column 2, 1;
     justify-content: center;
     align-items: center;
     gap: 50px;
 }
 
-.dados{
+.dados {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
-
 .caixa-dashboard {
-    background: #ad93be;
+    background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 20px;
@@ -48,14 +49,41 @@
 }
 
 .card-icon {
-    width: 28px;
-    height: 28px;
-    stroke-width: 1.7;
-    color: #0cb44d;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 25px;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px;
+}
+
+.user {
+    background-color: #eff6ff;
+    color: #457ffc;
+}
+
+.carro {
+    background-color: #fff7ed;
+    color: #f76728;
+}
+
+.confirma {
+    background-color: #f0fdf4;
+    color: #a7e2bc;
+}
+
+.arquivo {
+    background-color: #faf5ff;
+    color: #9810fa;
 }
 
 .caixa-dashboard-grafico {
-    background: #956bbd;
+    background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 20px;
@@ -65,10 +93,9 @@
 .lista-servicos {
     display: flex;
     flex-direction: column;
-    gap: 15px;
     margin-top: 15px;
     margin-bottom: 80px;
-    background-color: #0cb44d;
+    background-color: #ffffff;
     padding: 30px;
     border-radius: 15px;
 }
@@ -107,13 +134,6 @@
     color: #6b7280;
 }
 
-.dados {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 5px;
-}
-
 .data {
     font-size: 14px;
     color: #6b7280;
@@ -139,3 +159,7 @@
     background: #f59e0b;
 }
 
+h4 {
+    margin-bottom: 0px !important;
+    font-size: 15px;
+}

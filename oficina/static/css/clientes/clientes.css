@@ -25,12 +25,16 @@
     align-items: center;
     border: none;
     background: transparent;
+    background-color: #eeeeee;
+    border-radius: 10px;
 }
+
+
 
 .lista-clientes{
     width: 100%;
     height: 80%;
-    background-color: rgb(142, 110, 218);
+    background-color: white;
     border-radius: 12px;
     padding: 15px;
 }
@@ -63,7 +67,7 @@
 .icon-text {
     display: flex;
     align-items: center;
-    gap: 10px; /
+    gap: 10px; 
 }
 
 .btn-outline-secondary-1 {
@@ -94,4 +98,15 @@
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #6c757d;
     --bs-gradient: none;
+}
+
+.table {
+    --bs-table-bg: transparent !important;
+    --bs-table-striped-bg: transparent !important;
+    --bs-table-hover-bg: transparent !important;
+    background-color: transparent !important;
+}
+.table-hover tbody tr:hover {
+    --bs-table-hover-bg: #f1f5f9 !important;
+    background-color: #f1f5f9 !important;
 }

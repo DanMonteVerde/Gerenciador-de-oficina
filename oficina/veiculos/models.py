@@ -19,6 +19,7 @@ class Veiculo(models.Model):
         ('esperando_pecas', 'Esperando Peças'),
     ]
 
+
     placa = models.CharField(max_length=8 , null=False, blank=False, unique=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, null=False, blank=False, default='agendado')
     marca_modelo = models.CharField(max_length=100, null=False, blank=False)
@@ -29,7 +30,8 @@ class Veiculo(models.Model):
         ],
         null=False, blank=False)
     cor = models.CharField(max_length=100, null=False, blank=False)
-    proprietario = models.ForeignKey('clientes.CadastroCliente', on_delete=models.CASCADE)
+    
+    proprietario = models.ForeignKey('clientes.CadastroCliente', related_name='veiculos', on_delete=models.CASCADE)
     descricao = models.TextField(null=True, blank=True)
 
     def __str__(self):

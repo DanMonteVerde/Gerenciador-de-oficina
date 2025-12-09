@@ -1,0 +1,23 @@
+.filtro-servicos .nav-pills .nav-link {
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.filtro-servicos .nav-pills .nav-link:hover {
+    background-color: #f1f1f15d;
+}
+
+.filtro-servicos .nav-pills .nav-link.active {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    color: #000;
+}
+
+.ordens-servicos {
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 15px;
+}

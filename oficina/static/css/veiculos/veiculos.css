@@ -1,71 +1,102 @@
-/* Estilo geral */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f4f4f4;
-    color: #333;
+.card-simples {
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
 }
-
-header {
-    background: #1e88e5;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Blocos de status */
-.status-container {
+.icone-veiculo {
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    gap: 20px;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #e6f1e6;
+    flex-shrink: 0;
 }
 
-.status-box {
-    width: 250px;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-    font-weight: bold;
+.icone-veiculo i {
+    color: #38a169;
+    font-size: 1.25rem;
 }
 
-.pronto {
-    background: #43a047;
+.numero-destaque {
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #212529;
 }
 
-.manutencao {
-    background: #fb8c00;
-}
-
-.aguardando {
-    background: #e53935;
-}
-
-/* Lista de veículos */
-.lista-titulo {
-    text-align: center;
-    margin-top: 20px;
+.text-secondary {
+    color: #6b7280 !important;
+    font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .lista-veiculos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    justify-content: center;
-}
-
-.veiculo-card {
-    width: 280px;
-    background: white;
+    width: 100%;
+    height: 80%px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
-.veiculo-card h3 {
-    margin-top: 0;
-    color: #1e88e5;
+.caixas-veiculos {
+    background-color: rgb(253, 251, 251);
+    border-radius: 12px;
+}
+
+.carro-disponivel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-car {
+    font-size: 20px;
+    background-color: #e8ebf7;
+    padding: 10px;
+    border-radius: 8px;
+    width: 50px;
+    text-align: center;
+    color: #1e40af;
+}
+
+.btn-outline-secondary-1-veiculos {
+    --bs-btn-color: #4c515c;
+    --bs-btn-hover-color: #4c515c;
+    --bs-btn-hover-bg: #6b728034;
+    --bs-btn-focus-shadow-rgb: 108, 117, 125;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #6c757d;
+    --bs-btn-active-border-color: #6c757d;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #6c757d;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #6c757d;
+    --bs-gradient: none;
+    border: solid 1px;
+}
+
+.btn-outline-danger-2-veiculos {
+    --bs-btn-color: #ef4444;
+    --bs-btn-hover-color: #ef4444;
+    --bs-btn-hover-bg: #6b728034;
+    --bs-btn-focus-shadow-rgb: 108, 117, 125;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #6c757d;
+    --bs-btn-active-border-color: #6c757d;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #6c757d;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #6c757d;
+    --bs-gradient: none;
+    border: solid 1px;
+}
+
+.info-linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
