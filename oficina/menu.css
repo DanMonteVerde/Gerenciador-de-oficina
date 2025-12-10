@@ -60,7 +60,7 @@ body {
 
 .logo-azul {
     color: white;
-    background-color: #1e40af;
+    background-color: #707894;
     padding: 8px;
     border-radius: 15px;
     font-size: 40px;
@@ -73,8 +73,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #007bff;
-    color: white;
+    background-color: #DDE1EF;
+    color: #2748B2;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
