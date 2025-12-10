@@ -116,7 +116,8 @@
                             type="button"
                             id="botao-add-cliente"
                             class="d-flex botao-add"
-                        >
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModalToggle">
                             <i
                                 class="bi bi-plus"
                                 style="color: #000000; font-size: 30px"
@@ -124,6 +125,73 @@
 
                             <span style="margin-left: 10px">Novo Cliente</span>
                         </button>
+
+                        <div class="modal fade" id="exampleModalToggle" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;"> 
+                            <div class="modal-content" style="border-radius: 14px;">
+
+                            <div class="modal-header border-0">
+                                <h1 class="modal-title fs-4 fw-bold">Adicionar Novo Cliente</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p class="text-muted mb-3">
+                                Preencha os dados do cliente abaixo. Campos com * são obrigatórios.
+                                </p>
+
+                                <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Nome Completo *</label>
+                                    <input type="text" class="form-control" placeholder="Digite o nome">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">E-mail *</label>
+                                    <input type="email" class="form-control" placeholder="email@exemplo.com">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Telefone *</label>
+                                    <input type="text" class="form-control" placeholder="(11) 98765-4321">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">CPF</label>
+                                    <input type="text" class="form-control" placeholder="000.000.000-00">
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Endereço</label>
+                                    <input type="text" class="form-control" placeholder="Rua, número, bairro">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Cidade</label>
+                                    <input type="text" class="form-control" placeholder="São Paulo">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">CEP</label>
+                                    <input type="text" class="form-control" placeholder="00000-000">
+                                </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer border-0">
+                                <button class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                                <button class="btn btn">Salvar Cliente</button>
+                            </div>
+
+                            </div>
+                        </div>
+                        </div>
+
+
                     </div>
 
                     <div class="lista-clientes mt-4">

@@ -120,16 +120,93 @@
                             type="button"
                             id="botao-add-cliente"
                             class="d-flex botao-add"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalAddVeiculo"
                         >
-                            <i
-                                class="bi bi-plus"
-                                style="color: #000000; font-size: 30px"
-                            ></i>
-
-                            <span style="margin-left: 10px"
-                                >Novo Veículo</span
-                            >
+                            <i class="bi bi-plus" style="color: #000000; font-size: 30px"></i>
+                            <span style="margin-left: 10px">Novo Veículo</span>
                         </button>
+
+                    
+                        <div class="modal fade" id="modalAddVeiculo" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" style="max-width: 650px;">
+                            <div class="modal-content" style="border-radius: 14px;">
+
+                            
+                            <div class="modal-header border-0">
+                                <h1 class="modal-title fs-4 fw-bold">Adicionar Novo Veículo</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Corpo -->
+                            <div class="modal-body">
+
+                                <p class="text-muted mb-3">
+                                Preencha os dados do veículo e os problemas reportados. Campos com * são obrigatórios.
+                                </p>
+
+                                <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Placa *</label>
+                                    <input type="text" class="form-control" placeholder="ABC-1234">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Proprietário *</label>
+                                    <select class="form-select">
+                                    <option selected>Selecione o proprietário</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Marca *</label>
+                                    <input type="text" class="form-control" placeholder="Honda">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Modelo *</label>
+                                    <input type="text" class="form-control" placeholder="Civic">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Ano</label>
+                                    <input type="text" class="form-control" placeholder="2020">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Cor</label>
+                                    <input type="text" class="form-control" placeholder="Preto">
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Chassi</label>
+                                    <input type="text" class="form-control" placeholder="9BWZZZ377VT004251">
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Problemas Reportados *</label>
+                                    <textarea class="form-control" rows="3" placeholder="Descreva os problemas ou serviços necessários no veículo..."></textarea>
+                                </div>
+
+                                <p class="text-muted small mt-1">
+                                    Detalhe todos os problemas e defeitos apresentados pelo veículo
+                                </p>
+
+                                </div>
+
+                            </div>
+
+  
+                            <div class="modal-footer border-0">
+                                <button class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                                <button class="btn btn">Salvar Veículo</button>
+                            </div>
+
+                            </div>
+                        </div>
+                        </div>
+
                     </div>
 
                     <div class="row g-3 mt-4">

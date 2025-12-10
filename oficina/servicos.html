@@ -94,18 +94,96 @@
                         </div>
 
                         <button
-                            href="cadastroServicos.html"
                             type="button"
                             id="botao-add-cliente"
                             class="d-flex botao-add"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalOrdemServico"
                         >
-                            <i
-                                class="bi bi-plus"
-                                style="color: #000000; font-size: 30px"
-                            ></i>
-
-                            <span style="margin-left: 10px">Novo ordem de serviço</span>
+                            <i class="bi bi-plus" style="color: #000000; font-size: 30px"></i>
+                            <span style="margin-left: 10px">Nova Ordem de Serviço</span>
                         </button>
+
+
+                        <div class="modal fade" id="modalOrdemServico" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" style="max-width: 680px;">
+                            <div class="modal-content" style="border-radius: 14px;">
+
+                            <div class="modal-header border-0">
+                                <h1 class="modal-title fs-4 fw-bold">Criar Nova Ordem de Serviço</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+
+                            <div class="modal-body">
+
+                                <p class="text-muted mb-3">
+                                Preencha os dados do serviço abaixo
+                                </p>
+
+                                <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Cliente</label>
+                                    <select class="form-select">
+                                    <option selected>Selecione o cliente</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Veículo</label>
+                                    <select class="form-select">
+                                    <option selected>Selecione o Veículo</option>
+                                    <option selected>VW Gol - GHI-9012</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Tipo de Serviço</label>
+                                    <select class="form-select">
+                                    <option selected>Selecione o tipo</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Mecânico Responsável</label>
+                                    <select class="form-select">
+                                    <option selected>Selecione o mecânico</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Data Agendamento</label>
+                                    <input type="text" class="form-control" placeholder="dd/mm/aaaa">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Prioridade</label>
+                                    <select class="form-select">
+                                    <option selected>Selecione a prioridade</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Descrição do Serviço</label>
+                                    <textarea class="form-control" rows="3"
+                                    placeholder="Descreva o serviço a ser realizado"></textarea>
+                                </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="modal-footer border-0">
+                                <button class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                                <button class="btn btn">Criar Ordem</button>
+                            </div>
+
+                            </div>
+                        </div>
+                        </div>
+
+
                     </div>
 
                 <div class="ordens-servicos mt-4">
