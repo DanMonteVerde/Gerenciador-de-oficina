@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    {{servico.id}}
+    <br>
+    {{servico.descricao}}<br>
+    {{servico.veiculo.marca_modelo}}<br>
+    {{servico.veiculo.placa}}<br>
+    {{servico.cliente.nome}}<br>
+    {{servico.mecanico}}<br>
+    {{servico.data_agendamento}}<br>
+    {{servico.status}}<br>
+    {{servico.prioridade}}<br>
+    <a href="{% url 'servicos' %}"><button>Voltar</button></a>
+</body>
+</html>

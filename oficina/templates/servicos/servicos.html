@@ -63,20 +63,21 @@
                                 Gerencie as ordens de serviço da oficina
                             </h2>
                         </div>
+                        <a href="{% url 'cadastro_servico' %}">
+                            <button
+                                href="cadastroServicos.html"
+                                type="button"
+                                id="botao-add-cliente"
+                                class="d-flex botao-add"
+                            >
+                                <i
+                                    class="bi bi-plus"
+                                    style="color: #000000; font-size: 30px"
+                                ></i>
 
-                        <button
-                            href="cadastroServicos.html"
-                            type="button"
-                            id="botao-add-cliente"
-                            class="d-flex botao-add"
-                        >
-                            <i
-                                class="bi bi-plus"
-                                style="color: #000000; font-size: 30px"
-                            ></i>
-
-                            <span style="margin-left: 10px">Novo ordem de serviço</span>
-                        </button>
+                                <span style="margin-left: 10px">Novo ordem de serviço</span>
+                            </button>
+                            </a>
                     </div>
 
                 <div class="ordens-servicos mt-4">
@@ -90,9 +91,9 @@
 
                             <nav class="navbar bg-body-tertiary">
                                 <div class="container-fluid" style="padding: 0px;">
-                                    <form class="d-flex buscador-clientes" role="search">
+                                    <form class="d-flex buscador-clientes" role="search" method="get">
                                         <i class="bi bi-search" style="font-size: 20px; margin-right: 10px;"></i>
-                                        <input class="form-control me-2" type="search" placeholder="Buscar serviço" aria-label="Search"/>
+                                        <input class="form-control me-2" type="search" placeholder="Buscar serviço" aria-label="Search" name="q" value="{{request.GET.q}}"/>
                                     </form>
                                 </div>
                             </nav>
@@ -101,102 +102,56 @@
                         <div class="filtro-servicos">
                             <ul class="nav nav-pills">
                                 <li class="nav-item">
-                                    <button class="nav-link active">Todos (8)</button>
+                                    <a href="?filtro=todos" class="nav-link {% if filtro == 'todos' %}active{% endif %}">
+                                        Todos ({{todos}})
+                                    </a>
                                 </li>
+
                                 <li class="nav-item">
-                                    <button class="nav-link">Agendados (3)</button>
+                                    <a href="?filtro=agendados" class="nav-link {% if filtro == 'agendados' %}active{% endif %}">
+                                        Agendados ({{agendados}})
+                                    </a>
                                 </li>
+
                                 <li class="nav-item">
-                                    <button class="nav-link">Em Andamento (2)</button>
+                                    <a href="?filtro=andamento" class="nav-link {% if filtro == 'andamento' %}active{% endif %}">
+                                        Em Andamento ({{andamento}})
+                                    </a>
                                 </li>
+
                                 <li class="nav-item">
-                                    <button class="nav-link">Concluídos (2)</button>
+                                    <a href="?filtro=concluidos" class="nav-link {% if filtro == 'concluidos' %}active{% endif %}">
+                                        Concluídos ({{concluidos}})
+                                    </a>
                                 </li>
                             </ul>
                         </div>
-
+                    {% for servico in servicos %}
                         <div class="card mb-3 mt-4">
                             <div class="card-body">
-                                <h5 class="card-title">Troca de Óleo</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Honda Civic - ABC-1234</h6>
-                                <p class="card-text">Troca de óleo sintético</p>
+                                <h5 class="card-title">{{servico.tipo}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{servico.veiculo.marca_modelo}} - {{servico.veiculo.placa}}</h6>
+                                <p class="card-text">{%if servico.descricao %}{{servico.descricao}}{%else%}Sem descrição{%endif%}</p>
                             <div class="row mb-2">
-                                <div class="col-md-3"><strong>Cliente:</strong> João Silva</div>
-                                <div class="col-md-3"><strong>Mecânico:</strong> Carlos Monteiro</div>
-                                <div class="col-md-3"><strong>Agendamento:</strong> 21/10/2025</div>
-                                <div class="col-md-3"><strong>Valor:</strong> R$ 250,00</div>
+                                <div class="col-md-3"><strong>Cliente:</strong> {{servico.cliente.nome}}</div>
+                                <div class="col-md-3"><strong>Mecânico:</strong> {{servico.mecanico}}</div>
+                                <div class="col-md-3"><strong>Agendamento:</strong> {{servico.data_agendamento}}</div>
+                                <div class="col-md-3"><strong>Valor:</strong> {{servico.valor|floatformat:2}}</div>
                             </div>
-                            <span class="badge bg-success">Concluído</span>
-                            <span class="badge bg-secondary">Baixa</span>
+                            <span class="badge bg-success">{{servico.status}}</span>
+                            <span class="badge bg-secondary">{{servico.prioridade}}</span>
                             <div class="mt-3">
-                                <button class="btn btn-outline-primary btn-sm">Detalhes</button>
-                                <button class="btn btn-outline-secondary btn-sm">Editar</button>
+                                <a href="{% url 'detalhes_servico' servico.id %}"><button class="btn btn-outline-primary btn-sm">Detalhes</button></a>
+                                <a href="{% url 'editar_servico' pk=servico.id %}"><button class="btn btn-outline-secondary btn-sm">Editar</button>
+                            </a>
                             </div>
                             </div>
                         </div>
-
+                    {% endfor %}
                         
-                        <div class="card mb-3">
-                            <div class="card-body">
-                            <h5 class="card-title">Revisão Completa</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Toyota Corolla - DEF-5678</h6>
-                            <p class="card-text">Revisão dos 30.000 km</p>
-                            <div class="row mb-2">
-                                <div class="col-md-3"><strong>Cliente:</strong> Maria Santos</div>
-                                <div class="col-md-3"><strong>Mecânico:</strong> Roberto Silva</div>
-                                <div class="col-md-3"><strong>Agendamento:</strong> 21/10/2025</div>
-                                <div class="col-md-3"><strong>Valor:</strong> R$ 850,00</div>
-                            </div>
-                            <span class="badge bg-primary">Em Andamento</span>
-                            <span class="badge bg-danger">Alta</span>
-                            <div class="mt-3">
-                                <button class="btn btn-outline-primary btn-sm">Detalhes</button>
-                                <button class="btn btn-outline-secondary btn-sm">Editar</button>
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="card mb-3">
-                            <div class="card-body">
-                            <h5 class="card-title">Revisão Completa</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Toyota Corolla - DEF-5678</h6>
-                            <p class="card-text">Revisão dos 30.000 km</p>
-                            <div class="row mb-2">
-                                <div class="col-md-3"><strong>Cliente:</strong> Maria Santos</div>
-                                <div class="col-md-3"><strong>Mecânico:</strong> Roberto Silva</div>
-                                <div class="col-md-3"><strong>Agendamento:</strong> 21/10/2025</div>
-                                <div class="col-md-3"><strong>Valor:</strong> R$ 850,00</div>
-                            </div>
-                            <span class="badge bg-primary">Em Andamento</span>
-                            <span class="badge bg-danger">Alta</span>
-                            <div class="mt-3">
-                                <button class="btn btn-outline-primary btn-sm">Detalhes</button>
-                                <button class="btn btn-outline-secondary btn-sm">Editar</button>
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="card mb-3">
-                            <div class="card-body">
-                            <h5 class="card-title">Revisão Completa</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Toyota Corolla - DEF-5678</h6>
-                            <p class="card-text">Revisão dos 30.000 km</p>
-                            <div class="row mb-2">
-                                <div class="col-md-3"><strong>Cliente:</strong> Maria Santos</div>
-                                <div class="col-md-3"><strong>Mecânico:</strong> Roberto Silva</div>
-                                <div class="col-md-3"><strong>Agendamento:</strong> 21/10/2025</div>
-                                <div class="col-md-3"><strong>Valor:</strong> R$ 850,00</div>
-                            </div>
-                            <span class="badge bg-primary">Em Andamento</span>
-                            <span class="badge bg-danger">Alta</span>
-                            <div class="mt-3">
-                                <button class="btn btn-outline-primary btn-sm">Detalhes</button>
-                                <button class="btn btn-outline-secondary btn-sm">Editar</button>
-                            </div>
-                            </div>
-                        </div>
                 </div>
             </main>
+            
         </section>
 
     <script src="script.js"></script>
