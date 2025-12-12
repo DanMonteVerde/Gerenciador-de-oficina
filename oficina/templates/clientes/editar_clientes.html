@@ -1,7 +1,14 @@
 {% extends 'clientes/cadastro_cliente.html' %}
 
 {% block botoes %}
-<div style="display: flex; margin-bottom: 10px; text-align: end;">
+<div style="display: flex; margin-bottom: 10px; justify-content: space-between; gap: calc(10% - 20px); margin-bottom: 10px; padding-bottom: 20px;">
     <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Salvar</button>
+    <a href="{% url 'clientes' %}">
+    <button 
+        type="button" 
+        class="btn btn-secondary"
+        style="margin-top: 20px"
+    >Voltar</button>
+    </a>
 </div>
 {% endblock %}

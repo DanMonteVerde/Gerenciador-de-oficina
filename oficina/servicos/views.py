@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from veiculos.models import Veiculo
 from clientes.models import CadastroCliente
+from django.http import JsonResponse
 # Create your views here.
 @login_required
 def index_servico(request):
@@ -20,7 +21,7 @@ def index_servico(request):
     elif filtro == "andamento":
         servicos = CadrastroServicos.objects.filter(status="Em andamento")
     elif filtro == "concluidos":
-        servicos = CadrastroServicos.objects.filter(status="Concluido")
+        servicos = CadrastroServicos.objects.filter(status="Concluído")
     else:
         servicos = CadrastroServicos.objects.all()
     if busca:
@@ -28,7 +29,7 @@ def index_servico(request):
     todos = CadrastroServicos.objects.all().count()
     agendados = CadrastroServicos.objects.filter(status="Pendente").count()
     andamento = CadrastroServicos.objects.filter(status="Em andamento").count()
-    concluidos = CadrastroServicos.objects.filter(status="Concluido").count()
+    concluidos = CadrastroServicos.objects.filter(status="Concluído").count()
     context = {'servicos': servicos, 'agendados': agendados, 'andamento': andamento, 'concluidos': concluidos, 'todos': todos, 'filtro': filtro}
     return render(request,'servicos/servicos.html', context)
 @login_required
@@ -50,10 +51,20 @@ def cadastro_servico(request):
         form = CadastroServicoForm()
     return render(request, 'servicos/cadastro_servico.html', {'form': form})
 @login_required
-def detalhes_servico(request, id):
-    objects = get_object_or_404(CadrastroServicos, pk=id)
-    context = {'servico': objects}
-    return render(request, 'servicos/detalhes_servico.html', context) 
+def detalhes_servico_ajax(request, id):
+    servico = CadrastroServicos.objects.get(pk=id)
+
+    return JsonResponse({
+        "id": servico.id,
+        "descricao": servico.descricao,
+        "veiculo": servico.veiculo.marca_modelo if servico.veiculo else "",
+        "placa": servico.veiculo.placa if servico.veiculo else "",
+        "cliente": servico.veiculo.proprietario.nome if servico.veiculo.proprietario else "",
+        "mecanico": servico.mecanico,
+        "data": servico.data_agendamento.strftime("%d/%m/%Y"),
+        "status": servico.status,
+        "prioridade": servico.prioridade,
+    })
 
 class EditarServico(LoginRequiredMixin, UpdateView):
     model = CadrastroServicos

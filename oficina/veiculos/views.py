@@ -20,7 +20,7 @@ def index(request):
         )
     else:
         veiculos = Veiculo.objects.all()
-    context = {'veiculos': veiculos, 'total_veiculos': Veiculo.objects.all().count()}
+    context = {'veiculos': veiculos, 'total_veiculos': Veiculo.objects.all().count(), 'total_veiculos_antigos': Veiculo.antigos(), 'total_veiculos_novos': Veiculo.novos_veiculos()}
     return render(request, 'veiculos/veiculos.html', context)
 @login_required
 def cadastro_veiculo(request):

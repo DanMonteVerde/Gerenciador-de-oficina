@@ -20,17 +20,91 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
         />
+
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <link rel="stylesheet" href="{% static 'css/main/menu.css' %}">
         <link rel="stylesheet" href="{% static 'css/main/style.css' %}" />
     </head>
     <body>
-        {% include 'header.html' %}
+        <header>
+            <div id="imagem-header">
+                <i
+                    class="bi bi-wrench"
+                    style="
+                        font-size: 30px;
+                        background-color: #1e40af;
+                        padding: 5px;
+                        border-radius: 12px;
+                        color: white;
+                        width: 40px;
+                        text-align: center;
+                    "
+                ></i>
+                <div>
+                    <h1 style="color: #1e40af" class="texto-azul">
+                        AutoGest Pro
+                    </h1>
+                    <h2 class="text-muted">Sistema de gestão de oficina</h2>
+                </div>
+            </div>
+
+            <div id="user-logado">
+                <div id="caixa-logado">
+                    <div class="profile-pic" id="button-logout">
+                        <span class="initials"></span>
+                    </div>
+
+                    <span id="cargo-user">
+                        Administrador
+                        <span id="name-user"> Administrador </span>
+                    </span>
+                </div>
+
+                <button type="button" id="botao-sair">
+                    <i
+                        class="fa-solid fa-arrow-right-from-bracket"
+                        style="color: #000000; font-size: 15px"
+                    ></i>
+                </button>
+            </div>
+        </header>
 
         <div class="hamburger" id="hamburger">☰</div>
 
         <div class="container-externo">
-            {% include 'menuNav.html' %}
+            <div class="menu-lateral flex-column" id="sidebar">
+                <a href="{% url 'index' %}" class="nav-link active">
+                    <i class="bi bi-grid"></i> Dashboard
+                </a>
+
+                <a href="{% url 'clientes' %}" class="nav-link">
+                    <i class="bi bi-people"></i> Clientes
+                </a>
+
+                <a href="{% url 'veiculos' %}" class="nav-link">
+                    <i class="bi bi-car-front"></i> Veículos
+                </a>
+
+                <a href="{% url 'servicos' %}" class="nav-link">
+                    <i class="bi bi-tools"></i> Serviços
+                </a>
+
+                <a href="#" class="nav-link">
+                    <i class="bi bi-journal-text"></i> Orçamentos
+                </a>
+
+                <a href="#" class="nav-link">
+                    <i class="bi bi-box-seam"></i> Estoque
+                </a>
+
+                <a href="#" class="nav-link">
+                    <i class="bi bi-person-workspace"></i> Mecânicos
+                </a>
+
+                <a href="#" class="nav-link">
+                    <i class="bi bi-bar-chart-line"></i> Relatórios
+                </a>
+            </div>
 
             <section>
                 <main>
@@ -146,9 +220,13 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="servicos-recentes mt-4">
-                        <div class="lista-servicos">
+                    <div 
+                        class="servicos-recentes mt-4"
+                    >
+                        <div 
+                            class="lista-servicos"
+                            style="border: 1px solid #efefef; padding: 20px; border-radius: 8px"
+                        >
                             <h4>Serviços Recentes</h4>
                             <p class="text-muted">
                                 Últimas ordens de serviço registradas
@@ -158,7 +236,7 @@
                                 <div class="icon-area">
                                     <i class="bi bi-wrench-adjustable"></i>
                                 </div>
-                                
+
                                 <div class="info">
                                     <strong>{{servico.cliente.nome}}</strong>
                                     <span>{{servico.veiculo.marca_modelo}} • {{servico.tipo}}</span>
@@ -167,12 +245,13 @@
                                 <div class="dados">
                                     <span class="data">{{servico.data_agendamento}}</span>
                                     <span class="status concluido"
-                                        >{{servico.status}}</span
+                                        >Concluído</span
                                     >
                                 </div>
                             </div>
-                            {% endfor %}
-                            
+
+                        {% endfor %}
+
                         </div>
                     </div>
                 </main>
@@ -182,74 +261,3 @@
         <script src="{% static 'js/main/script.js' %}"></script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Oficina</title>
-    <link rel="stylesheet" href="{% static 'css/main/style.css' %}">
-</head>
-<body>
-
-    <nav class="sidebar">
-        <h2>Oficina</h2>
-        <ul>
-            <li><a href="{% url 'index' %}">Dashboard</a></li>
-            <li><a href="{% url 'clientes' %}">Clientes</a></li>
-            <li><a href="#">Serviços</a></li>
-
-        </ul>
-    </nav>
-
-    <main class="content">
-        
-
-        <h1>Dashboard da Oficina</h1> -->
-
-        <!-- Cards superiores -->
-        <!-- <section class="cards">
-            <div class="card">Clientes cadastrados: <strong>{{clientes_cadastrados}}</strong></div>
-            <div class="card">Serviços concluídos: <strong>8</strong></div>
-            <div class="card">Aguardando peças: <strong>3</strong></div>
-            <div class="card">Faturamento do dia: <strong>R$ 2.350,00</strong></div>
-        </section> -->
-
-        <!-- Gráficos -->
-        <!-- <section class="charts">
-            <div class="chart">Gráfico 1</div>
-            <div class="chart">Gráfico 2</div>
-        </section>
-
-
-        <section class="info">
-            <p><strong>Nome:</strong> João da Oficina</p>
-            <p><strong>Data:</strong> 16/11/2025</p>
-            <p><strong>Conclusão:</strong> Operações funcionando normalmente. Alto fluxo pela manhã.</p>
-        </section>
-
-    </main>
-
-</body>
-</html> -->

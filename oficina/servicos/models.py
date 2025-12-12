@@ -34,7 +34,6 @@ class CadrastroServicos(models.Model):
     tipo = models.CharField(max_length=50, choices=TIPOS_DE_SERVICOS)
     #CONVERSAR SOBRE CHAVE ESTRANGEIRA COM O PROFESSOR DEPOIS
     veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE, null=True)
-    cliente = models.ForeignKey(CadastroCliente, on_delete=models.SET_NULL, null=True)
     mecanico = models.CharField(max_length=100, null=True, blank=True)
     data_agendamento = models.DateField(null=False, blank=False)
     valor = models.DecimalField(

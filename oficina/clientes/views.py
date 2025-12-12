@@ -26,7 +26,6 @@ def cadastro(request):
         form = CadastroClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Cliente cadastrado com sucesso!")
             return redirect('clientes')
     else:
         form = CadastroClienteForm()    

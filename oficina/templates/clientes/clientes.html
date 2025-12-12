@@ -27,12 +27,51 @@
                     alert("{{ message|escapejs }}");
                 </script>
             {% endfor %}
-        {% endif %} 
-
+        {% endif %}
     </head>
     <body>
-        {% include 'header.html' %}
+        <header>
+            <div id="imagem-header">
+                <i
+                    class="bi bi-wrench"
+                    style="
+                        font-size: 30px;
+                        background-color: #1e40af;
+                        padding: 5px;
+                        border-radius: 12px;
+                        color: white;
+                        width: 40px;
+                        text-align: center;
+                    "
+                ></i>
+                <div>
+                    <h1 style="color: #1e40af" class="texto-azul">
+                        AutoGest Pro
+                    </h1>
+                    <h2>Sistema de gestão de oficina</h2>
+                </div>
+            </div>
 
+            <div id="user-logado">
+                <div id="caixa-logado">
+                    <div class="profile-pic" id="button-logout">
+                        <span class="initials"></span>
+                    </div>
+
+                    <span id="cargo-user">
+                        Administrador
+                        <span id="name-user"> Administrador </span>
+                    </span>
+                </div>
+
+                <button type="button" id="botao-sair">
+                    <i
+                        class="fa-solid fa-arrow-right-from-bracket"
+                        style="color: #000000; font-size: 20px"
+                    ></i>
+                </button>
+            </div>
+        </header>
 
         <div class="hamburger" id="hamburger">☰</div>
 
@@ -96,7 +135,7 @@
                                     Lista de Clientes
                                 </h1>
                                 <p class="text-muted">
-                                    Total de {{clientes.count}} clientes cadastrados
+                                    Total de {{ clientes.count }} clientes cadastrados
                                 </p>
                             </div>
 
@@ -104,12 +143,7 @@
                                 class="navbar bg-body-tertiary"
                                 style="color: #9da1ab"
                             >
-
-                                <div 
-                                    class="container-fluid"
-                                    style="padding: 0px"
-                                >
-                                    <form 
+                                <form 
                                         method="get"
                                         class="d-flex buscador-clientes align-itens-center"
                                         role="search">
@@ -163,18 +197,18 @@
 
                                     <td>
                                         <div class="icon-text">
-                                            <i class="bi bi-telephone"></i> {{cliente.telefone}}
+                                            <i class="bi bi-telephone"></i> {{ cliente.telefone }}
                                         </div>
 
                                         <div class="icon-text">
                                             <i class="bi bi-envelope"></i>
-                                            {{cliente.email}}
+                                            {{ cliente.email }}
                                         </div>
                                     </td>
 
                                     <td>
                                         <div class="icon-text">
-                                            <i class="bi bi-geo-alt"></i>{{cliente.endereco}}
+                                            <i class="bi bi-geo-alt"></i> {{ cliente.endereco }}
                                         </div>
                                     </td>
 
@@ -185,31 +219,26 @@
                                             >Ativo</span
                                         >
                                     </td>
+
                                     <td>
-                                        <a href="{% url 'editar_cliente' cliente.id %}">
+                                        <a href="{% url 'editar_cliente' cliente.id %}" style="padding: 0;">
                                         <button
+                                        style="padding: 0;"
                                             class="btn btn-sm btn-outline-secondary-1 me-2"
                                         >
                                             <i class="bi bi-pencil-square"></i>
                                         </button></a>
-                                        <!-- VER DEPOIS A QUESTAO DOS STILOS DO FORMS -->
-                                        <!-- <form action="{% url 'excluir_cliente' cliente.id %}" method="post" onsubmit="return confirmarExclusao()">
-                                            {% csrf_token %}
-                                            <button
-                                            class="btn btn-sm btn-outline-danger-2">
+                                        <form action="{% url 'excluir_cliente' cliente.id %}" method="post" onsubmit="return confirmarExclusao()" >
+                                        <button
+                                            class="btn btn-sm btn-outline-danger-2"
+                                            style="padding: 0;"
+                                            >
                                             <i class="bi bi-trash-fill"></i>
                                         </button>
-                                        </form> -->
-
-                                        <a href="{% url 'excluir_cliente' cliente.id %}"><button
-                                            class="btn btn-sm btn-outline-danger-2"
-                                            
-                                        >
-                                            <i class="bi bi-trash-fill"></i>
-                                        </button></a>
+                                        </form>
                                     </td>
+                                </tr>
                                 {% endfor %}
-                                    
                             </tbody>
                         </table>
                     </div>

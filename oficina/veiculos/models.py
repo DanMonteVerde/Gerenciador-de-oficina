@@ -27,6 +27,12 @@ class Veiculo(models.Model):
 
     def __str__(self):
         return f"{self.id} - {self.placa} - {self.marca_modelo}"
+    @classmethod
+    def antigos(cls):
+        return cls.objects.filter(ano__lte=2000).count()
+    @classmethod
+    def novos_veiculos(cls):
+        return cls.objects.filter(ano__gte=2020).count()
     # @classmethod
     # def quantidade_concluidos(cls):
     #     return cls.objects.filter(status='concluido').count()
