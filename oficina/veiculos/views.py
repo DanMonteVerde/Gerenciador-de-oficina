@@ -20,7 +20,7 @@ def index(request):
         )
     else:
         veiculos = Veiculo.objects.all()
-    context = {'veiculos': veiculos, 'concluidos': Veiculo.quantidade_concluidos(), 'em_andamento': Veiculo.quantidade_em_andamento(), 'aguardando_pecas': Veiculo.quantidade_esperando_pecas()}
+    context = {'veiculos': veiculos, 'total_veiculos': Veiculo.objects.all().count()}
     return render(request, 'veiculos/veiculos.html', context)
 @login_required
 def cadastro_veiculo(request):
@@ -41,7 +41,6 @@ def cadastro_veiculo(request):
 @login_required
 def excluir_veiculo(request, id):
     veiculo = Veiculo.objects.get(id=id)
-    messages.warning(request, "Veiculo excluido com sucesso!")
     veiculo.delete()
     return redirect('veiculos')
 

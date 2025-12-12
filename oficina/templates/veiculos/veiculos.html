@@ -44,10 +44,17 @@
         <link rel="stylesheet" href="{% static 'css/main/menu.css' %}">
         <link rel="stylesheet" href="{% static 'css/main/style.css' %}" />
         <link rel="stylesheet" href="{% static 'css/clientes/clientes.css' %}" />
+        {% if messages %}
+            {% for message in messages %}
+                <script>
+                    alert("{{ message|escapejs }}");
+                </script>
+            {% endfor %}
+        {% endif %} 
     </head>
     <body>
         {% include 'header.html' %}
-
+        
         <div class="hamburger" id="hamburger">☰</div>
 
         <div class="container-externo">
@@ -95,21 +102,14 @@
                                 problemas
                             </h2>
                         </div>
-
-                        <button
-                            type="button"
-                            id="botao-add-cliente"
-                            class="d-flex botao-add"
+                        <a
+                            href="{% url 'cadastro_veiculo' %}"
+                            style="text-decoration: none; color: inherit"
                         >
-                            <i
-                                class="bi bi-plus"
-                                style="color: #000000; font-size: 30px"
-                            ></i>
-
-                            <span style="margin-left: 10px"
-                                >Nova ordem de serviço</span
-                            >
-                        </button>
+                            <button class="add-btn btn btn-primary">
+                                + Nova ordem de serviço
+                            </button>
+                        </a>
                     </div>
 
                     <div class="row g-3 mt-4">
@@ -172,7 +172,7 @@
                                     Lista de Veículos
                                 </h4>
                                 <p class="text-muted">
-                                    Total de 5 veículos cadastrados
+                                    Total de {{total_veiculos}} veículos cadastrados
                                 </p>
                             </div>
 
@@ -182,7 +182,10 @@
                                     class="container-fluid"
                                     style="padding: 0px"
                                 >
-                                <form method="get" class="d-flex buscador-clientes" role="search">
+                                <form 
+                                    method="get" 
+                                    class="d-flex buscador-clientes align-items-center" 
+                                    role="search">
                                     <i
                                             class="bi bi-search"
                                             style="
@@ -190,13 +193,16 @@
                                                 margin-right: 10px;
                                             "
                                         ></i>
-                                    <div class="search-box">
+                                    <div 
+                                        class="search-box"
+                                        style="display: flex; align-items: center;">
+
                                         <input name="q" value="{{ busca }}"
                                         class="form-control me-2"
                                         type="search"
                                         placeholder="Buscar veículo..."
                                         aria-label="Search">
-                                        <button type="submit">Buscar</button>
+                                        <button type="submit" class="btn btn-outline-info" style="padding: 4px 10px; font-size: 14px;">Buscar</button>
                                     </div>
                                 </form>
                                 </div>
@@ -204,6 +210,7 @@
                         </div>
 
                         <div class="row g-3 mt-1">
+                            {% for veiculo in veiculos %}
                             <div class="col-12 col-lg-4">
                                 <div class="caixas-veiculos p-3">
                                     <div
@@ -215,7 +222,7 @@
                                             </div>
                                             <div class="dados-carro">
                                                 <span>Placa</span>
-                                                <h5>ABC-123</h5>
+                                                <h5>{{veiculo.placa}}</h5>
                                             </div>
                                         </div>
                                         <span
@@ -226,30 +233,30 @@
 
                                     <div class="info-linha">
                                         <span class="label">Marca/Modelo:</span>
-                                        <span class="valor">Honda Civic</span>
+                                        <span class="valor">{{veiculo.marca_modelo}}</span>
                                     </div>
 
                                     <div class="info-linha">
                                         <span class="label">Ano:</span>
-                                        <span class="valor">2020</span>
+                                        <span class="valor">{{veiculo.ano}}</span>
                                     </div>
 
                                     <div class="info-linha">
                                         <span class="label">Cor:</span>
-                                        <span class="valor">Preto</span>
+                                        <span class="valor">{{veiculo.cor}}</span>
                                     </div>
 
                                     <div class="info-linha mb-2">
                                         <span class="label">Proprietário:</span>
-                                        <span class="valor">João Silva</span>
+                                        <span class="valor">{{veiculo.proprietario.nome}}</span>
                                     </div>
-
+                                    <!-- verificar a possibilidade de tirar isso depois -->
                                     <div class="alert alert-warning py-2">
                                         <i class="bi bi-exclamation"></i>
                                         Motor falhando em marcha lenta. Barulho
                                         estranho ao frear.
                                     </div>
-
+                                    
                                     <hr />
 
                                     <div class="d-flex">
@@ -261,320 +268,32 @@
                                             ></i>
                                             Detalhes
                                         </button>
-
+                                        <a href="{% url 'editar_veiculo' pk=veiculo.id %}", style="text-decoration: none; color: inherit;">
                                         <button
                                             class="btn btn-sm btn-outline-secondary-1-veiculos me-2"
                                         >
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
-
-                                        <button
-                                            class="btn btn-sm btn-outline-danger-2-veiculos"
-                                        >
-                                            <i class="bi bi-trash-fill"></i>
-                                        </button>
+                                        </a>
+                                        <form action="{% url 'excluir_veiculo' id=veiculo.id %}" method="post" onsubmit="return confirmarExclusao()">
+                                            {% csrf_token %}
+                                            <button
+                                            class="btn btn-sm btn-outline-danger-2-veiculos">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+                                        </form>
+                                        
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-12 col-lg-4">
-                                <div class="caixas-veiculos p-3">
-                                    <div
-                                        class="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div class="d-flex carro-disponivel">
-                                            <div class="icon-car">
-                                                <i class="fa-solid fa-car"></i>
-                                            </div>
-                                            <div class="dados-carro">
-                                                <span>Placa</span>
-                                                <h5>ABC-123</h5>
-                                            </div>
-                                        </div>
-                                        <span
-                                            class="badge bg-success-subtle text-success px-3 py-2"
-                                            >Disponível</span
-                                        >
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Marca/Modelo:</span>
-                                        <span class="valor">Honda Civic</span>
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Ano:</span>
-                                        <span class="valor">2020</span>
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Cor:</span>
-                                        <span class="valor">Preto</span>
-                                    </div>
-
-                                    <div class="info-linha mb-2">
-                                        <span class="label">Proprietário:</span>
-                                        <span class="valor">João Silva</span>
-                                    </div>
-
-                                    <div class="alert alert-warning py-2">
-                                        <i class="bi bi-exclamation"></i>
-                                        Motor falhando em marcha lenta. Barulho
-                                        estranho ao frear.
-                                    </div>
-
-                                    <hr />
-
-                                    <div class="d-flex">
-                                        <button
-                                            class="btn btn-sm btn-outline-secondary-1-veiculos me-2 flex-fill"
-                                        >
-                                            <i
-                                                class="bi bi-file-earmark-text"
-                                            ></i>
-                                            Detalhes
-                                        </button>
-
-                                        <button
-                                            class="btn btn-sm btn-outline-secondary-1-veiculos me-2"
-                                        >
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                        <button
-                                            class="btn btn-sm btn-outline-danger-2-veiculos"
-                                        >
-                                            <i class="bi bi-trash-fill"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-lg-4">
-                                <div class="caixas-veiculos p-3">
-                                    <div
-                                        class="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div class="d-flex carro-disponivel">
-                                            <div class="icon-car">
-                                                <i class="fa-solid fa-car"></i>
-                                            </div>
-                                            <div class="dados-carro">
-                                                <span>Placa</span>
-                                                <h5>ABC-123</h5>
-                                            </div>
-                                        </div>
-                                        <span
-                                            class="badge bg-success-subtle text-success px-3 py-2"
-                                            >Disponível</span
-                                        >
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Marca/Modelo:</span>
-                                        <span class="valor">Honda Civic</span>
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Ano:</span>
-                                        <span class="valor">2020</span>
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Cor:</span>
-                                        <span class="valor">Preto</span>
-                                    </div>
-
-                                    <div class="info-linha mb-2">
-                                        <span class="label">Proprietário:</span>
-                                        <span class="valor">João Silva</span>
-                                    </div>
-
-                                    <div class="alert alert-warning py-2">
-                                        <i class="bi bi-exclamation"></i>
-                                        Motor falhando em marcha lenta. Barulho
-                                        estranho ao frear.
-                                    </div>
-
-                                    <hr />
-
-                                    <div class="d-flex">
-                                        <button
-                                            class="btn btn-sm btn-outline-secondary-1-veiculos me-2 flex-fill"
-                                        >
-                                            <i
-                                                class="bi bi-file-earmark-text"
-                                            ></i>
-                                            Detalhes
-                                        </button>
-
-                                        <button
-                                            class="btn btn-sm btn-outline-secondary-1-veiculos me-2"
-                                        >
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                        <button
-                                            class="btn btn-sm btn-outline-danger-2-veiculos"
-                                        >
-                                            <i class="bi bi-trash-fill"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-lg-4">
-                                <div class="caixas-veiculos p-3">
-                                    <div
-                                        class="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div class="d-flex carro-disponivel">
-                                            <div class="icon-car">
-                                                <i class="fa-solid fa-car"></i>
-                                            </div>
-                                            <div class="dados-carro">
-                                                <span>Placa</span>
-                                                <h5>ABC-123</h5>
-                                            </div>
-                                        </div>
-                                        <span
-                                            class="badge bg-success-subtle text-success px-3 py-2"
-                                            >Disponível</span
-                                        >
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Marca/Modelo:</span>
-                                        <span class="valor">Honda Civic</span>
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Ano:</span>
-                                        <span class="valor">2020</span>
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Cor:</span>
-                                        <span class="valor">Preto</span>
-                                    </div>
-
-                                    <div class="info-linha mb-2">
-                                        <span class="label">Proprietário:</span>
-                                        <span class="valor">João Silva</span>
-                                    </div>
-
-                                    <div class="alert alert-warning py-2">
-                                        <i class="bi bi-exclamation"></i>
-                                        Motor falhando em marcha lenta. Barulho
-                                        estranho ao frear.
-                                    </div>
-
-                                    <hr />
-
-                                    <div class="d-flex">
-                                        <button
-                                            class="btn btn-sm btn-outline-secondary-1-veiculos me-2 flex-fill"
-                                        >
-                                            <i
-                                                class="bi bi-file-earmark-text"
-                                            ></i>
-                                            Detalhes
-                                        </button>
-
-                                        <button
-                                            class="btn btn-sm btn-outline-secondary-1-veiculos me-2"
-                                        >
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                        <button
-                                            class="btn btn-sm btn-outline-danger-2-veiculos"
-                                        >
-                                            <i class="bi bi-trash-fill"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-lg-4">
-                                <div class="caixas-veiculos p-3">
-                                    <div
-                                        class="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div class="d-flex carro-disponivel">
-                                            <div class="icon-car">
-                                                <i class="fa-solid fa-car"></i>
-                                            </div>
-                                            <div class="dados-carro">
-                                                <span>Placa</span>
-                                                <h5>ABC-123</h5>
-                                            </div>
-                                        </div>
-                                        <span
-                                            class="badge bg-success-subtle text-success px-3 py-2"
-                                            >Disponível</span
-                                        >
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Marca/Modelo:</span>
-                                        <span class="valor">Honda Civic</span>
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Ano:</span>
-                                        <span class="valor">2020</span>
-                                    </div>
-
-                                    <div class="info-linha">
-                                        <span class="label">Cor:</span>
-                                        <span class="valor">Preto</span>
-                                    </div>
-
-                                    <div class="info-linha mb-2">
-                                        <span class="label">Proprietário:</span>
-                                        <span class="valor">João Silva</span>
-                                    </div>
-
-                                    <div class="alert alert-warning py-2">
-                                        <i class="bi bi-exclamation"></i>
-                                        Motor falhando em marcha lenta. Barulho
-                                        estranho ao frear.
-                                    </div>
-
-                                    <hr />
-
-                                    <div class="d-flex">
-                                        <button
-                                            class="btn btn-sm btn-outline-secondary-1-veiculos me-2 flex-fill"
-                                        >
-                                            <i
-                                                class="bi bi-file-earmark-text"
-                                            ></i>
-                                            Detalhes
-                                        </button>
-
-                                        <button
-                                            class="btn btn-sm btn-outline-secondary-1-veiculos me-2"
-                                        >
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                        <button
-                                            class="btn btn-sm btn-outline-danger-2-veiculos"
-                                        >
-                                            <i class="bi bi-trash-fill"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                            {%endfor%}
                         </div>
                     </div>
                 </main>
             </section>
         </div>
-
-        <script src="script.js"></script>
+        
+        <script src="{% static 'js/main/script.js' %}"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

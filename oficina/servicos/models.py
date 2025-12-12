@@ -32,7 +32,8 @@ class CadrastroServicos(models.Model):
         ("Alta", "Alta"),
     ]
     tipo = models.CharField(max_length=50, choices=TIPOS_DE_SERVICOS)
-    veiculo = models.ForeignKey(Veiculo, on_delete=models.SET_NULL, null=True)
+    #CONVERSAR SOBRE CHAVE ESTRANGEIRA COM O PROFESSOR DEPOIS
+    veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE, null=True)
     cliente = models.ForeignKey(CadastroCliente, on_delete=models.SET_NULL, null=True)
     mecanico = models.CharField(max_length=100, null=True, blank=True)
     data_agendamento = models.DateField(null=False, blank=False)
@@ -48,3 +49,14 @@ class CadrastroServicos(models.Model):
     prioridade = models.CharField(max_length=20, choices=PRIORIDADE, null=False, blank=False, default='Normal')
     def __str__(self):
         return str(self.id)
+    @classmethod
+    def quantidade_concluidos(cls):
+        return cls.objects.filter(status='Concluído').count()
+
+    @classmethod
+    def quantidade_pendentes(cls):
+        return cls.objects.filter(status='Pendente').count()
+
+    @classmethod
+    def quantidade_em_andamento(cls):
+        return cls.objects.filter(status='Em andamento').count()

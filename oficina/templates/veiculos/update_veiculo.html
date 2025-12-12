@@ -1,4 +1,6 @@
 {% extends 'veiculos/cadastro_veiculo.html' %}
 {% block botao %}
 <button type="submit">SALVAR</button>
+<a href="{% url 'veiculos' %}">
+<button type = "submit">VOLTAR</button></a>
 {% endblock %}

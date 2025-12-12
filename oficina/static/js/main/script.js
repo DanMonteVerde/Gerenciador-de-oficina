@@ -1,3 +1,4 @@
+
 function generateInitials(fullName) {
     if (!fullName) return "";
 
@@ -28,3 +29,9 @@ const hamburger = document.getElementById("hamburger");
 hamburger.addEventListener("click", () => {
     sidebar.classList.toggle("open");
 });
+
+function confirmarExclusao() {
+    console.log("Confirmar exclusão");
+    return confirm("Tem certeza que deseja excluir este veículo?");
+}
+

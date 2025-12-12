@@ -1,5 +1,5 @@
 {% load static %}
- 
+
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
 <link rel="stylesheet" href="{% static 'css/main/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/main/menu.css' %}" />
@@ -37,12 +37,14 @@
                 <span id="name-user" style="color: #000000;"> Administrador </span>
             </span>
         </div>
-
-        <button type="button" id="botao-sair">
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" id="botao-sair">
             <i
                 class="fa-solid fa-arrow-right-from-bracket"
                 style="color: #000000; font-size: 15px"
             ></i>
-        </button>
+            </button>
+        </form>
     </div>
 </header>

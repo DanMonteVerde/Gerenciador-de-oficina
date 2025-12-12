@@ -6,7 +6,9 @@ from django.urls import reverse_lazy
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-
+from django.contrib import messages
+from veiculos.models import Veiculo
+from clientes.models import CadastroCliente
 # Create your views here.
 @login_required
 def index_servico(request):
@@ -31,6 +33,14 @@ def index_servico(request):
     return render(request,'servicos/servicos.html', context)
 @login_required
 def cadastro_servico(request):
+    if CadastroCliente.objects.count() == 0:
+        messages.error(request, "Cadastre pelo menos um cliente antes de criar um serviço.")
+        return redirect('clientes')
+
+    if Veiculo.objects.count() == 0:
+        messages.error(request, "Cadastre pelo menos um veículo antes de criar um serviço.")
+        return redirect('veiculos')
+
     if request.method == 'POST':
         form = CadastroServicoForm(request.POST)
         if form.is_valid():

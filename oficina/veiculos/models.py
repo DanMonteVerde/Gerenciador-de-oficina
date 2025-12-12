@@ -12,16 +12,7 @@ from datetime import datetime
 # - descrição
 
 class Veiculo(models.Model):
-    STATUS_CHOICES = [
-        ('em_andamento', 'Em Andamento'),
-        ('concluido', 'Concluido'),
-        ('agendado', 'Agendado'),
-        ('esperando_pecas', 'Esperando Peças'),
-    ]
-
-
     placa = models.CharField(max_length=8 , null=False, blank=False, unique=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, null=False, blank=False, default='agendado')
     marca_modelo = models.CharField(max_length=100, null=False, blank=False)
     ano = models.IntegerField(
         validators=[
@@ -36,18 +27,18 @@ class Veiculo(models.Model):
 
     def __str__(self):
         return f"{self.id} - {self.placa} - {self.marca_modelo}"
-    @classmethod
-    def quantidade_concluidos(cls):
-        return cls.objects.filter(status='concluido').count()
+    # @classmethod
+    # def quantidade_concluidos(cls):
+    #     return cls.objects.filter(status='concluido').count()
 
-    @classmethod
-    def quantidade_em_andamento(cls):
-        return cls.objects.filter(status='em_andamento').count()
+    # @classmethod
+    # def quantidade_em_andamento(cls):
+    #     return cls.objects.filter(status='em_andamento').count()
 
-    @classmethod
-    def quantidade_agendados(cls):
-        return cls.objects.filter(status='agendado').count()
+    # @classmethod
+    # def quantidade_agendados(cls):
+    #     return cls.objects.filter(status='agendado').count()
 
-    @classmethod
-    def quantidade_esperando_pecas(cls):
-        return cls.objects.filter(status='esperando_pecas').count()
+    # @classmethod
+    # def quantidade_esperando_pecas(cls):
+    #     return cls.objects.filter(status='esperando_pecas').count()

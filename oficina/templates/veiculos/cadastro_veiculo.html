@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +12,11 @@
         {{ form.as_p }}
         {% block botao %}
         <button type="submit">Cadastrar</button>
+        <a href="{% url 'veiculos' %}" style="padding: 5px 12px; background: #ccc; border-radius: 4px; text-decoration:none;">
+            Voltar
+        </a>
+
         {% endblock %}
-        <a href="{% url 'veiculos' %}"><button>voltar</button></a>
     </form>
 </body>
 </html>
