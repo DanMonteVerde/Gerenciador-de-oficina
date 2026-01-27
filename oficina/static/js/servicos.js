@@ -16,3 +16,5 @@ function abrirDetalhes(id) {
             modal.show();
         });
 }
+
+

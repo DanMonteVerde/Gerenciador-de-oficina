@@ -22,14 +22,14 @@ class CadrastroServicos(models.Model):
     ]
 
     STATUS = [
-        ("Pendente", "Pendente"),
-        ("Em andamento", "Em andamento"),
-        ("Concluído", "Concluído"),
+        (1, "Pendente"),
+        (2, "Em andamento"),
+        (3, "Concluído"),
     ]
     PRIORIDADE = [
-        ("Baixa", "Baixa"),
-        ("Normal", "Normal"),
-        ("Alta", "Alta"),
+        (3, "Baixa"),
+        (2, "Normal"),
+        (1, "Alta"),
     ]
     tipo = models.CharField(max_length=50, choices=TIPOS_DE_SERVICOS)
     #CONVERSAR SOBRE CHAVE ESTRANGEIRA COM O PROFESSOR DEPOIS
@@ -43,9 +43,11 @@ class CadrastroServicos(models.Model):
         null = False,
         blank = False,
     )
-    status = models.CharField(max_length=20, choices=STATUS, null=False, blank=False, default='Pendente')
+    status = models.CharField(max_length=20, choices=STATUS, null=False, blank=False, default=1)
     descricao = models.TextField(null=True, blank=True)
-    prioridade = models.CharField(max_length=20, choices=PRIORIDADE, null=False, blank=False, default='Normal')
+    prioridade = models.CharField(max_length=20, choices=PRIORIDADE, null=False, blank=False, default=2)
+    class Meta:
+        ordering = ['prioridade', '-data_agendamento']
     def __str__(self):
         return str(self.id)
     @classmethod

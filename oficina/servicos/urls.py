@@ -6,4 +6,6 @@ urlpatterns = [
     path('cadastro/', views.cadastro_servico, name='cadastro_servico'),
     path('detalhes/<int:id>/ajax/', views.detalhes_servico_ajax, name='detalhes_servico_ajax'),
     path('editar/<int:pk>/', views.EditarServico.as_view(), name='editar_servico'),
+    path('ajax/carregar-veiculos/', views.carregar_veiculos, name='carregar_veiculos'),
+    path('ajax/veiculos/', views.ajax_carregar_veiculos, name='ajax_carregar_veiculos'),
 ]

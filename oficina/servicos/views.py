@@ -23,7 +23,7 @@ def index_servico(request):
     elif filtro == "concluidos":
         servicos = CadrastroServicos.objects.filter(status="Concluído")
     else:
-        servicos = CadrastroServicos.objects.all()
+        servicos = CadrastroServicos.objects.all().order_by('prioridade', '-data_agendamento')
     if busca:
         servicos = servicos.filter(Q(tipo__icontains=busca) | Q(descricao__icontains=busca) | Q(data_agendamento__icontains=busca) | Q(status__icontains=busca) | Q(cliente__nome__icontains=busca)| Q(veiculo__placa__icontains=busca) | Q(veiculo__marca_modelo__icontains=busca))
     todos = CadrastroServicos.objects.all().count()
@@ -71,3 +71,23 @@ class EditarServico(LoginRequiredMixin, UpdateView):
     form_class = CadastroServicoForm
     template_name = 'servicos/editar_servico.html'
     success_url = reverse_lazy('servicos')
+
+#AJAX PARA BUSCA NO BD DE SERVIÇOS
+def carregar_veiculos(request):
+    cliente_id = request.GET.get('cliente_id')
+    veiculos = Veiculo.objects.filter(proprietario_id=cliente_id)
+    data = []
+    for veiculo in veiculos:
+        data.append({'id': veiculo.id,
+            'marca_modelo': str(veiculo),
+            'placa': veiculo.placa})
+    return JsonResponse(data, safe=False)
+
+def ajax_carregar_veiculos(request):
+    cliente_id = request.GET.get('cliente_id')
+
+    veiculos = Veiculo.objects.filter(
+        proprietario_id=cliente_id
+    ).values('id', 'marca_modelo', 'placa')
+
+    return JsonResponse(list(veiculos), safe=False)

@@ -1,0 +1,49 @@
+/* ----- Estilização Geral do Form ----- */
+
+.form-group p {
+    margin-bottom: 18px;            /* Espaçamento entre os campos */
+}
+
+.form-group label {
+    display: block;                 /* Fica acima do input */
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* Input, select e textarea */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;         /* Evita estourar o container */
+}
+
+/* Quando clicar */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 4px rgba(13,110,253,0.4);
+}
+
+/* Erros do Django */
+.form-group .errorlist {
+    color: #dc3545;
+    font-size: 14px;
+    margin-bottom: 6px;
+    list-style: none;
+    padding: 0;
+}
+
+.form-group #id_descricao {
+    height: 100px;
+    font-size: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+}
