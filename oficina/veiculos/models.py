@@ -24,7 +24,7 @@ class Veiculo(models.Model):
     
     proprietario = models.ForeignKey('clientes.CadastroCliente', related_name='veiculos', on_delete=models.CASCADE)
     descricao = models.TextField(null=True, blank=True)
-
+    
     def __str__(self):
         return f"{self.id} - {self.placa} - {self.marca_modelo}"
     @classmethod

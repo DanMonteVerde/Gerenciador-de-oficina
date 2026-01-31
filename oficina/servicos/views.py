@@ -17,19 +17,19 @@ def index_servico(request):
     filtro = request.GET.get("filtro", "todos")
 
     if filtro == "agendados":
-        servicos = CadrastroServicos.objects.filter(status="Pendente")
+        servicos = CadrastroServicos.objects.filter(status=1)
     elif filtro == "andamento":
-        servicos = CadrastroServicos.objects.filter(status="Em andamento")
+        servicos = CadrastroServicos.objects.filter(status=2)
     elif filtro == "concluidos":
-        servicos = CadrastroServicos.objects.filter(status="Concluído")
+        servicos = CadrastroServicos.objects.filter(status=3)
     else:
         servicos = CadrastroServicos.objects.all().order_by('prioridade', '-data_agendamento')
     if busca:
         servicos = servicos.filter(Q(tipo__icontains=busca) | Q(descricao__icontains=busca) | Q(data_agendamento__icontains=busca) | Q(status__icontains=busca) | Q(cliente__nome__icontains=busca)| Q(veiculo__placa__icontains=busca) | Q(veiculo__marca_modelo__icontains=busca))
     todos = CadrastroServicos.objects.all().count()
-    agendados = CadrastroServicos.objects.filter(status="Pendente").count()
-    andamento = CadrastroServicos.objects.filter(status="Em andamento").count()
-    concluidos = CadrastroServicos.objects.filter(status="Concluído").count()
+    agendados = CadrastroServicos.objects.filter(status=1).count()
+    andamento = CadrastroServicos.objects.filter(status=2).count()
+    concluidos = CadrastroServicos.objects.filter(status=3).count()
     context = {'servicos': servicos, 'agendados': agendados, 'andamento': andamento, 'concluidos': concluidos, 'todos': todos, 'filtro': filtro}
     return render(request,'servicos/servicos.html', context)
 @login_required

@@ -43,21 +43,21 @@ class CadrastroServicos(models.Model):
         null = False,
         blank = False,
     )
-    status = models.CharField(max_length=20, choices=STATUS, null=False, blank=False, default=1)
+    status = models.IntegerField(choices=STATUS, null=False, blank=False, default=1)
     descricao = models.TextField(null=True, blank=True)
-    prioridade = models.CharField(max_length=20, choices=PRIORIDADE, null=False, blank=False, default=2)
+    prioridade = models.IntegerField(choices=PRIORIDADE, null=False, blank=False, default=2)
     class Meta:
         ordering = ['prioridade', '-data_agendamento']
     def __str__(self):
         return str(self.id)
     @classmethod
     def quantidade_concluidos(cls):
-        return cls.objects.filter(status='Concluído').count()
+        return cls.objects.filter(status=3).count()
 
     @classmethod
     def quantidade_pendentes(cls):
-        return cls.objects.filter(status='Pendente').count()
+        return cls.objects.filter(status=1).count()
 
     @classmethod
     def quantidade_em_andamento(cls):
-        return cls.objects.filter(status='Em andamento').count()
+        return cls.objects.filter(status=2).count()

@@ -3,7 +3,6 @@ from .models import CadrastroServicos
 from clientes.models import CadastroCliente
 from veiculos.models import Veiculo
 from django.core.exceptions import ValidationError
-#ISSO FOI CHAT somente pra data na ediçao nao ficar vazia
 class CadastroServicoForm(forms.ModelForm):
     cliente = forms.ModelChoiceField(queryset=CadastroCliente.objects.all(), required=True, label= "Cliente")
     class Meta:

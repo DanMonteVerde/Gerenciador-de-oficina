@@ -165,8 +165,12 @@
                                 <div class="col-md-3"><strong>Agendamento:</strong> {{servico.data_agendamento}}</div>
                                 <div class="col-md-3"><strong>Valor:</strong> {{servico.valor|floatformat:2}}</div>
                             </div>
-                            <span class="badge bg-success">{{servico.status}}</span>
-                            <span class="badge bg-secondary">{{servico.prioridade}}</span>
+                            <span class="badge bg-success">
+                                {{ servico.get_status_display }}
+                            </span>
+                            <span class="badge bg-secondary">
+                                {{ servico.get_prioridade_display }}
+                            </span>
                             <div class="mt-3">
                                 <button class="btn btn-outline-primary btn-sm" onclick="abrirDetalhes({{ servico.id }})">
                                     Detalhes

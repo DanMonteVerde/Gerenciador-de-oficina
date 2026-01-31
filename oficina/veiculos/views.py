@@ -7,7 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 # Create your views here.
 @login_required
 def index(request):
@@ -49,3 +50,17 @@ class VeiculoUpdateView(LoginRequiredMixin, UpdateView):
     form_class = VeiculoForm
     template_name = 'veiculos/update_veiculo.html'
     success_url = '/veiculos'
+
+
+# modal
+def detalhes_servicos_ajax(request, veiculo_id):
+    veiculo = get_object_or_404(Veiculo, id=veiculo_id)
+    return JsonResponse({
+        "id": veiculo.id,
+        "placa": veiculo.placa,
+        "marca_modelo": veiculo.marca_modelo,
+        "ano": veiculo.ano,
+        "cor": veiculo.cor,
+        "proprietario": veiculo.proprietario.nome,
+        "descricao": veiculo.descricao
+    })
