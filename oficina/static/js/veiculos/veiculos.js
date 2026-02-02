@@ -1,5 +1,5 @@
-function abrirDetalhes(id) {
-    fetch(`/servicos/detalhes/${id}/ajax/`)
+function abrirDetalhesveiculo(id) {
+    fetch(`/veiculos/detalhes/${id}/ajax/`)
         .then(res => res.json())
         .then(data => {
             document.getElementById("det-id").innerText = data.id;
@@ -9,7 +9,6 @@ function abrirDetalhes(id) {
             document.getElementById("det-cor").innerText = data.cor;
             document.getElementById("det-proprietario").innerText = data.proprietario;
             document.getElementById("det-descricao").innerText = data.descricao;
-            
 
             let modal = new bootstrap.Modal(
                 document.getElementById("modalDetalhes")

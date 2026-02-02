@@ -53,8 +53,8 @@ class VeiculoUpdateView(LoginRequiredMixin, UpdateView):
 
 
 # modal
-def detalhes_servicos_ajax(request, veiculo_id):
-    veiculo = get_object_or_404(Veiculo, id=veiculo_id)
+def detalhes_servicos_ajax(request, id):
+    veiculo = get_object_or_404(Veiculo, id=id)
     return JsonResponse({
         "id": veiculo.id,
         "placa": veiculo.placa,

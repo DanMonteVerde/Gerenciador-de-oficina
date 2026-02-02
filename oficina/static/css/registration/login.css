@@ -13,11 +13,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
-img {
+/* img {
     width: 50px;
     height: auto;
     margin-bottom: 10px;
-}
+} */
 
 .login-container {
     background-color: #ffffff;
