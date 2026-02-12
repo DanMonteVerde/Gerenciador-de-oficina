@@ -1,17 +1,16 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Login</title>
-        <link rel="stylesheet" href="{% static 'css/registration/login.css' %}" />
+        <link
+            rel="stylesheet"
+            href="{% static 'css/registration/login.css' %}"
+        />
     </head>
     <body>
-<img src="https://i1.sndcdn.com/artworks-N8jWXMWMuRhBJOPh-zgSS3Q-t500x500.jpg"
-     width="1000"
-     height="600"
-     alt="logo">
         <h2>Auto Gest Pro</h2>
         <p class="subtitulo">Sistema de gestão de oficina</p>
         <div id="caixa-login" class="login-container">
@@ -20,8 +19,7 @@
                 Entre com suas credenciais para acessar o sistema
             </p>
             <form action="" method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
+                {% csrf_token %} {{ form.as_p }}
                 <button type="submit">Entrar</button>
             </form>
         </div>
