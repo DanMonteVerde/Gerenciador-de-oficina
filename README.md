@@ -81,7 +81,11 @@ Dentro de cada app existe uma estrutura padrão: os arquivos com o nome de model
 ## Desenvolvedores
 
 Gabriel Santos
+
 Kayke Lopes
+
 Daniel Barbosa
+
 Everton Martins
+
 Estudantes do Ensino Médio Técnico em Informática Integrado  – IF Baiano Campus Bom Jesus da Lapa
