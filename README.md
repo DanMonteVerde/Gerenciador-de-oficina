@@ -73,7 +73,7 @@ O sistema permite realizar o CRUD (criar, consultar, atualizar e excluir) de ve�
 
 ## Organização geral do projeto
 
-A pasta oficina concentra as configurações principais do projeto Django. Já servicos, veiculos, main, clientes e account são os chamados apps, usados para organizar o sistema em partes menores, facilitando a manutenção, a leitura do código e a separação da lógica.
+A pasta oficina concentra as configurações principais do projeto Django. Já servicos, veiculos, main e clientes são os chamados apps, usados para organizar o sistema em partes menores, facilitando a manutenção, a leitura do código e a separação da lógica.
 
 Dentro de cada app existe uma estrutura padrão: os arquivos com o nome de models.py definem a estrutura do banco de dados e fazem ligação com o mesmo, com o nome de views.py concentram a lógica do sistema e fazem a comunicação com os templates (HTML), e os urls.py define as rotas e caminhos de acesso. A pasta templates armazena as páginas HTML do sistema, enquanto a pasta static reúne arquivos estáticos como CSS, JavaScript e imagens usados na interface.
 ---
