@@ -32,10 +32,6 @@ Primeiro você precisa clonar o repositório:
 
 git clone https://github.com/DanMonteVerde/Gerenciador-de-oficina.git
 
-Depois entra na pasta do projeto:
-
-cd oficina
-
 Se quiser fazer do jeito mais organizado, cria um ambiente virtual:
 
 python -m venv venv
@@ -51,6 +47,10 @@ source venv/bin/activate
 Instala as dependências:
 
 pip install -r requirements.txt
+
+Depois entra na pasta do projeto:
+
+cd oficina
 
 Aplica as migrações do banco:
 
