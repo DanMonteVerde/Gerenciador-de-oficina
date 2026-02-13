@@ -38,7 +38,6 @@ def cadastro_veiculo(request):
         form = VeiculoForm()
     return render(request, 'veiculos/cadastro_veiculo.html', {'form': form})
 
-#DEPOIS FAREI O DE DETALHES (NAO É OBRIGATORIO)
 @login_required
 def excluir_veiculo(request, id):
     veiculo = Veiculo.objects.get(id=id)
