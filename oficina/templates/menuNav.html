@@ -3,23 +3,23 @@
 <link rel="stylesheet" href="{% static 'css/main/style.css' %}" />
 
 <div class="menu-lateral flex-column">
-    <a href="{% url 'index' %}" class="nav-link active">
+    <a href="{% url 'index' %}" class="nav-link {% if request.resolver_match.view_name == 'index' %} active {% endif %}">
         <i class="bi bi-grid"></i> Dashboard
     </a>
 
-    <a href="{% url 'clientes' %}" class="nav-link">
+    <a href="{% url 'clientes' %}" class="nav-link {% if request.resolver_match.view_name == 'clientes' %} active {% endif %}">
         <i class="bi bi-people"></i> Clientes
     </a>
 
-    <a href="{% url 'veiculos' %}" class="nav-link">
+    <a href="{% url 'veiculos' %}" class="nav-link {% if request.resolver_match.view_name == 'veiculos' %} active {% endif %}">
         <i class="bi bi-car-front"></i> Veículos
     </a>
 
-    <a href="{% url 'servicos' %}" class="nav-link">
+    <a href="{% url 'servicos' %}" class="nav-link {% if request.resolver_match.view_name == 'servicos' %} active {% endif %}">
         <i class="bi bi-tools"></i> Serviços
     </a>
 
-    <a href="#" class="nav-link">
+    <!-- <a href="#" class="nav-link">
         <i class="bi bi-journal-text"></i> Orçamentos
     </a>
 
@@ -33,5 +33,5 @@
 
     <a href="#" class="nav-link">
         <i class="bi bi-bar-chart-line"></i> Relatórios
-    </a>
+    </a> -->
 </div>
